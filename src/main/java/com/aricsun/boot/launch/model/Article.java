@@ -26,4 +26,5 @@ public class Article {
     private String title;
     private String content;
     private Date createTime;
+    private List<Reader> reader;
 }
