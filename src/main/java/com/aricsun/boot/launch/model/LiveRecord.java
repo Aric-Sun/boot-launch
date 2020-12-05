@@ -3,7 +3,7 @@ package com.aricsun.boot.launch.model;
 import java.util.List;
 
 /**
- * GsonFormatæ’ä»¶ç¤ºä¾‹ å¿«æ·é”®alt+s è®°ä¸ä½çš„è¯ï¼ŒåŒå‡»shiftæœç´¢gson
+ * GsonFormat²å¼şÊ¾Àı ¿ì½İ¼üalt+s ¼Ç²»×¡µÄ»°£¬Ë«»÷shiftËÑË÷gson
  * @author AricSun
  * @date 2020.12.04 21:21
  */
@@ -28,7 +28,7 @@ public class LiveRecord {
      * record_danmaku_guard : false
      * live_api_host : https://api.live.bilibili.com
      * record_filename_format : {roomid}-{name}/{date}-{time}-{title}-{random}.flv
-     * clip_filename_format : {roomid}-{name}/å‰ªè¾‘ç‰‡æ®µ-{roomid}-{date}-{time}-{title}.flv
+     * clip_filename_format : {roomid}-{name}/¼ô¼­Æ¬¶Î-{roomid}-{date}-{time}-{title}.flv
      */
 
     private int feature;

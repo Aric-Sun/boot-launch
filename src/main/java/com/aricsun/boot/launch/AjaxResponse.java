@@ -4,14 +4,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * RESTfulæ ‡å‡†æ¥å£å“åº”æ•°æ®æ ¼å¼
+ * RESTful±ê×¼½Ó¿ÚÏìÓ¦Êı¾İ¸ñÊ½
  * @author AricSun
  * @date 2020.12.04 22:51
  */
 @Data
 public class AjaxResponse {
     private boolean isok;
-    private int code;  // 200ã€400ã€500
+    private int code;  // 200¡¢400¡¢500
     private String message;
     private Object data;
 
@@ -19,14 +19,14 @@ public class AjaxResponse {
         AjaxResponse ajaxResponse = new AjaxResponse();
         ajaxResponse.setIsok(true);
         ajaxResponse.setCode(200);
-        ajaxResponse.setMessage("è¯·æ±‚å“åº”æˆåŠŸï¼");
+        ajaxResponse.setMessage("ÇëÇóÏìÓ¦³É¹¦£¡");
         return ajaxResponse;
     }
     public static AjaxResponse success(Object obj){
         AjaxResponse ajaxResponse = new AjaxResponse();
         ajaxResponse.setIsok(true);
         ajaxResponse.setCode(200);
-        ajaxResponse.setMessage("è¯·æ±‚å“åº”æˆåŠŸï¼");
+        ajaxResponse.setMessage("ÇëÇóÏìÓ¦³É¹¦£¡");
         ajaxResponse.setData(obj);
         return ajaxResponse;
     }

@@ -18,16 +18,16 @@ public class HelloController {
     @RequestMapping("/hello")
     public String hello(String name){
 
-        // codota è‡ªåŠ¨ä»£ç è¡¥å…¨ç¤ºä¾‹
+        // codota ×Ô¶¯´úÂë²¹È«Ê¾Àı
 //        String path = "a.txt";
 //        File file = new File(path);
 //        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
 
-        // auto filling java call parameter å‚æ•°å¡«å……ç¤ºä¾‹
+        // auto filling java call parameter ²ÎÊıÌî³äÊ¾Àı
 //        LombokPOJO l = new LombokPOJO(name, age);
-        // å¾—æŠŠæ³¨è§£@NoArgsConstructoræ³¨é‡Šæ‰æ‰èƒ½ç”¨
+        // µÃ°Ñ×¢½â@NoArgsConstructor×¢ÊÍµô²ÅÄÜÓÃ
 
-        //rainbow brackets å½©è™¹æ‹¬å·ä»£ç ç¤ºä¾‹ å–æ¶ˆä¸‹é¢çš„æ³¨é‡ŠæŸ¥çœ‹æ•ˆæœ
+        //rainbow brackets ²ÊºçÀ¨ºÅ´úÂëÊ¾Àı È¡ÏûÏÂÃæµÄ×¢ÊÍ²é¿´Ğ§¹û
 //        (((((((((((((((((((((((((((((((((((((((((((())))))))))))))))))))))))))))))))))))))))))))
 
         return "hello world, "+ name;

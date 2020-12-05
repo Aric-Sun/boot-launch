@@ -9,7 +9,7 @@ public class BootLaunchApplication {
 
 	public static void main(String[] args) {
 
-		// @Builderçš„æ•ˆæžœ
+		// @BuilderµÄÐ§¹û
 		LombokPOJO lombokPOJO = LombokPOJO.builder()
 				.name("aricSun")
 				.age(23)

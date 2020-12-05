@@ -2,11 +2,14 @@ package com.aricsun.boot.launch.controller;
 
 import com.aricsun.boot.launch.AjaxResponse;
 import com.aricsun.boot.launch.model.Article;
+import com.aricsun.boot.launch.model.Reader;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author AricSun
@@ -14,18 +17,24 @@ import java.util.Date;
  */
 @Slf4j
 @RestController
-@RequestMapping("/rest")  // ç›¸å½“äºä¸‹é¢è·¯å¾„çš„å‰ç¼€
+@RequestMapping("/rest")  // Ïàµ±ÓÚÏÂÃæÂ·¾¶µÄÇ°×º
 public class ArticleController {
-    //æŸ¥è¯¢ä¸€ç¯‡æ–‡ç« ï¼Œæ ¹æ®id
+    //²éÑ¯Ò»ÆªÎÄÕÂ£¬¸ù¾İid
 //    @RequestMapping(value = "/articles/{id}", method = RequestMethod.GET)
     @GetMapping("/articles/{id}")
-    public AjaxResponse getArticle(@PathVariable("id") Long id){  // PathVariableè¡¨ç¤ºä¼ é€’çš„æ˜¯è·¯å¾„ä¸Šçš„å˜é‡
+    public AjaxResponse getArticle(@PathVariable("id") Long id){  // PathVariable±íÊ¾´«µİµÄÊÇÂ·¾¶ÉÏµÄ±äÁ¿
+        List<Reader> readers = new ArrayList<Reader>(){{  // ÊµÀı³õÊ¼»¯Æ÷
+         add(new Reader("kobe", 21));
+         add(new Reader("james", 20));
+        }};
+
         Article article = Article.builder()
                 .id(1L)
                 .author("aricSun")
-                .content("è·¯å¾„é€‰æ‹©å·¥å…·ï¼šU")
+                .content("Â·¾¶Ñ¡Ôñ¹¤¾ß£ºU")
                 .createTime(new Date())
-                .title("PSåŸºæœ¬å·¥å…·")
+                .reader(readers)
+                .title("PS»ù±¾¹¤¾ß")
                 .build();
 
         log.info("article: "+ article);
@@ -33,11 +42,11 @@ public class ArticleController {
         return AjaxResponse.success(article);
     }
 
-    //æ–°å¢ä¸€ç¯‡æ–‡ç« 
+    //ĞÂÔöÒ»ÆªÎÄÕÂ
 //    @RequestMapping(value = "/articles", method = RequestMethod.POST)
     @PostMapping("/articles")
-    public AjaxResponse saveArticle(@RequestBody Article article,  // RequestBodyæ¥æ”¶æ¥è‡ªhttpçš„ä¸€ä¸ªå¯¹è±¡ï¼Œå¯åµŒå¥—ï¼ˆjsonï¼‰
-                                    @RequestHeader String aaa){  // RequestHeaderæ¥æ”¶è¯·æ±‚å¤´å‚æ•°
+    public AjaxResponse saveArticle(@RequestBody Article article,  // RequestBody½ÓÊÕÀ´×ÔhttpµÄÒ»¸ö¶ÔÏó£¬¿ÉÇ¶Ì×£¨json£©
+                                    @RequestHeader String aaa){  // RequestHeader½ÓÊÕÇëÇóÍ·²ÎÊı
 
         log.info("saveArticle: "+ article);
 
@@ -48,19 +57,19 @@ public class ArticleController {
                                     @RequestParam  String title,
                                     @RequestParam  String content,
                                     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-                                    @RequestParam  Date createTime){  // RequestParam åªèƒ½å¹³é¢çš„ä¸€ä¸ªä¸€ä¸ªåœ°æ¥æ¥æ”¶å‚æ•°(formè¡¨å•å’Œgetå‚æ•°)
+                                    @RequestParam  Date createTime){  // RequestParam Ö»ÄÜÆ½ÃæµÄÒ»¸öÒ»¸öµØÀ´½ÓÊÕ²ÎÊı(form±íµ¥ºÍget²ÎÊı)
 
         log.info("saveArticle: "+ createTime);
 
         return AjaxResponse.success();
     }*/
 
-    //æ›´æ–°ä¸€ç¯‡æ–‡ç« 
+    //¸üĞÂÒ»ÆªÎÄÕÂ
 //    @RequestMapping(value = "/articles", method = RequestMethod.PUT)
     @PutMapping("/articles")
     public AjaxResponse updateArticle(@RequestBody Article article){
         if (article.getId() == null){
-            //TODO: æŠ›å‡ºä¸€ä¸ªè‡ªå®šä¹‰å¼‚å¸¸
+            //TODO: Å×³öÒ»¸ö×Ô¶¨ÒåÒì³£
         }
 
         log.info("updateArticle: "+ article);
@@ -68,7 +77,7 @@ public class ArticleController {
         return AjaxResponse.success();
     }
 
-    //åˆ é™¤ä¸€ç¯‡æ–‡ç« ï¼Œæ ¹æ®id
+    //É¾³ıÒ»ÆªÎÄÕÂ£¬¸ù¾İid
 //    @RequestMapping(value = "/articles/{id}", method = RequestMethod.DELETE)
     @DeleteMapping("/articles/{id}")
     public AjaxResponse deleteArticle(@PathVariable("id") Long id){

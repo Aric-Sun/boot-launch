@@ -10,11 +10,11 @@ import lombok.extern.slf4j.Slf4j;
  * @author AricSun
  * @date 2020.12.04 17:19
  */
-@Data   // getter setter æ„é€  equal toString
-@Slf4j  // æ„å»ºLoggerå¯¹è±¡
-@Builder// è‡ªåŠ¨æ„å»ºå¯¹è±¡ï¼Œè¯¦è§src/main/java/com/aricsun/boot/launch/BootLaunchApplication.java
-@AllArgsConstructor  // å…¨å‚çš„æ„é€ å‡½æ•°
-//@NoArgsConstructor  //æ— å‚çš„æ„é€ å‡½æ•°
+@Data   // getter setter ¹¹Ôì equal toString
+@Slf4j  // ¹¹½¨Logger¶ÔÏó
+@Builder// ×Ô¶¯¹¹½¨¶ÔÏó£¬Ïê¼ûsrc/main/java/com/aricsun/boot/launch/BootLaunchApplication.java
+@AllArgsConstructor  // È«²ÎµÄ¹¹Ôìº¯Êı
+//@NoArgsConstructor  //ÎŞ²ÎµÄ¹¹Ôìº¯Êı
 public class LombokPOJO {
     // use @slf4j to override
 //    private static final Logger log = LoggerFactory.getLogger(lombokPOJO.class);
