@@ -3,10 +3,11 @@ package com.aricsun.boot.launch.controller;
 import com.aricsun.boot.launch.AjaxResponse;
 import com.aricsun.boot.launch.model.Article;
 import com.aricsun.boot.launch.model.Reader;
+import com.aricsun.boot.launch.service.ArticleService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,6 +20,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/rest")  // 相当于下面路径的前缀
 public class ArticleController {
+
+    @Resource
+    ArticleService articleService;
+
     //查询一篇文章，根据id
 //    @RequestMapping(value = "/articles/{id}", method = RequestMethod.GET)
     @GetMapping("/articles/{id}")
