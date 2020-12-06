@@ -29,12 +29,12 @@ public class Article {
      */
     @JsonIgnore  // 忽略敏感的字段，不返回
     private Long id;
-    @JsonProperty("auther")  // 别名，更改response的字段名，输出顺序掉到最后一个
+//    @JsonProperty("auther")  // 别名，更改response的接收/返回字段名，输出顺序掉到最后一个
     private String author;
     private String title;
     private String content;
     @JsonFormat(pattern = "yyyy/MM/dd HH:mm:ss", timezone = "GMT+8")
-    // 更改此model返回的日期/数字格式（化），用于在全局设置（application.yml）下的特殊设置，
+    // 更改此model接收/返回的日期/数字格式（化），用于在全局设置（application-test.yml）下的特殊设置，
     private Date createTime;
     @JsonInclude(JsonInclude.Include.NON_NULL)  // 不返回空的字段
     private List<Reader> reader;

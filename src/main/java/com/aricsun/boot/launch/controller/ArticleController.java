@@ -45,12 +45,12 @@ public class ArticleController {
     //新增一篇文章
 //    @RequestMapping(value = "/articles", method = RequestMethod.POST)
     @PostMapping("/articles")
-    public AjaxResponse saveArticle(@RequestBody Article article,  // RequestBody接收来自http的一个对象，可嵌套（json）
-                                    @RequestHeader String aaa){  // RequestHeader接收请求头参数
+    public AjaxResponse saveArticle(@RequestBody Article article/*,  // RequestBody接收来自http的一个对象，可嵌套（json）
+                                    @RequestHeader String aaa*/){  // RequestHeader接收请求头参数
 
         log.info("saveArticle: "+ article);
 
-        return AjaxResponse.success();
+        return AjaxResponse.success(article);
     }
     /*@PostMapping("/articles")
     public AjaxResponse saveArticle(@RequestParam  String author,
