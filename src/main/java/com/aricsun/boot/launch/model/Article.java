@@ -33,7 +33,7 @@ public class Article {
     private String author;
     private String title;
     private String content;
-//    @JsonFormat(pattern = "yyyy/MM/dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     // 更改此model接收/返回的日期/数字格式（化），用于在全局设置（application-test.yml）下的特殊设置，
     private Date createTime;
     @JsonInclude(JsonInclude.Include.NON_NULL)  // 不返回空的字段
