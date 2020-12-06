@@ -38,7 +38,7 @@ public class JacksonTest {
         System.out.println(jsonStr);
 
         // json -> java Object
-        Article article1 = mapper.readValue("{\"content\":\"路径选择工具：U\",\"title\":\"PS基本工具\",\"createTime\":\"2020/12/06 01:17:45\",\"reader\":[{\"name\":\"kobe\",\"age\":21},{\"name\":\"james\",\"age\":20}],\"author\":\"aricSun\"}",
+        Article article1 = mapper.readValue("{\"content\":\"路径选择工具：U\",\"title\":\"PS基本工具\",\"createTime\":\"2020-12-06 01:17:45\",\"reader\":[{\"name\":\"kobe\",\"age\":21},{\"name\":\"james\",\"age\":20}],\"author\":\"aricSun\"}",
                 Article.class);
         System.out.println(article1);
     }

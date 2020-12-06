@@ -61,8 +61,10 @@ public class ArticleRestControllerTest3 {
                 "    \"reader\" : [{\"name\":\"zimug\",\"age\":18},{\"name\":\"kobe\",\"age\":37}]\n" +
                 "}";
 
+        // json -> Java
         ObjectMapper mapper = new ObjectMapper();
         Article articleObj = mapper.readValue(article, Article.class);
+
         //mock打桩（设置条件）
         when(articleService.saveArticle(articleObj)).thenReturn("ok");
 
