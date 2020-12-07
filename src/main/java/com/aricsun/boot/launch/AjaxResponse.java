@@ -1,5 +1,7 @@
 package com.aricsun.boot.launch;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,10 +11,15 @@ import lombok.NoArgsConstructor;
  * @date 2020.12.04 22:51
  */
 @Data
+@ApiModel(value = "通用响应数据结构类")  // 用于SwaggerAPI文档显示
 public class AjaxResponse {
+    @ApiModelProperty(value = "请求是否处理成功")
     private boolean isok;
+    @ApiModelProperty(value = "请求响应状态码", example = "200、400、500")
     private int code;  // 200、400、500
+    @ApiModelProperty(value = "请求结果描述信息")
     private String message;
+    @ApiModelProperty(value = "请求结果数据")
     private Object data;
 
     public static AjaxResponse success(){

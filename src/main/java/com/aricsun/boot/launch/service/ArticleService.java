@@ -1,6 +1,7 @@
 package com.aricsun.boot.launch.service;
 
 import com.aricsun.boot.launch.model.Article;
+import org.springframework.stereotype.Service;
 
 /**
  * ≤‚ ‘“¿¿µ◊¢»Î”√
