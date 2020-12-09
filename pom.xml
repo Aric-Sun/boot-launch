@@ -60,7 +60,8 @@
 			<version>3.9</version>
 		</dependency>
 
-		<dependency>
+		<!--Swagger2-->
+		<!--<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
 			<version>2.6.1</version>
@@ -85,7 +86,14 @@
 			<groupId>io.swagger</groupId>
 			<artifactId>swagger-models</artifactId>
 			<version>1.5.16</version>
+		</dependency>-->
+
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.4.5</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -98,27 +106,27 @@
 				</configuration>
 			</plugin>
 
-			<plugin>
+			<!--<plugin>
 				<groupId>org.asciidoctor</groupId>
 				<artifactId>asciidoctor-maven-plugin</artifactId>
 				<version>1.5.6</version>
 				<configuration>
-					<!--asciidoc文件目录-->
+					&lt;!&ndash;asciidoc文件目录&ndash;&gt;
 					<sourceDirectory>src/main/resources/docs</sourceDirectory>
-					<!--生成html的路径-->
+					&lt;!&ndash;生成html的路径&ndash;&gt;
 					<outputDirectory>src/main/resources/html</outputDirectory>
 					<backend>html</backend>
 					<sourceHighlighter>coderay</sourceHighlighter>
 					<attributes>
-						<!--导航栏在左-->
+						&lt;!&ndash;导航栏在左&ndash;&gt;
 						<toc>left</toc>
-						<!--显示层级数-->
-						<!--<toclevels>3</toclevels>-->
-						<!--自动打数字序号-->
+						&lt;!&ndash;显示层级数&ndash;&gt;
+						&lt;!&ndash;<toclevels>3</toclevels>&ndash;&gt;
+						&lt;!&ndash;自动打数字序号&ndash;&gt;
 						<sectnums>true</sectnums>
 					</attributes>
 				</configuration>
-			</plugin>
+			</plugin>-->
 		</plugins>
 	</build>
 

@@ -4,7 +4,7 @@ import com.aricsun.boot.launch.AjaxResponse;
 import com.aricsun.boot.launch.model.Article;
 import com.aricsun.boot.launch.model.Reader;
 import com.aricsun.boot.launch.service.ArticleService;
-import io.swagger.annotations.*;
+//import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * 由于Swagger3（OpenAPI3.0）的实现，Swagger2部分的注解被注释掉了
  * @author AricSun
  * @date 2020.12.04 22:18
  */
@@ -61,7 +62,7 @@ public class ArticleController {
         return AjaxResponse.success(article);
     }
 
-    @ApiOperation(value = "添加文章", notes = "添加新的文章", tags = "Article", httpMethod = "POST")
+    /*@ApiOperation(value = "添加文章", notes = "添加新的文章", tags = "Article", httpMethod = "POST")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "title", value = "文章标题", required = true, dataType = "String"),
             @ApiImplicitParam(name = "content", value = "文章内容", required = true, dataType = "String"),
@@ -69,7 +70,7 @@ public class ArticleController {
     })
     @ApiResponses({
             @ApiResponse(code = 200, message = "成功", response = AjaxResponse.class),
-    })
+    })*/
     @PostMapping("/articles2")
     public AjaxResponse saveArticle(@RequestParam  String author,
                                     @RequestParam  String title,

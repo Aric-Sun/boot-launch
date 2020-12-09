@@ -1,3 +1,4 @@
+/*
 package com.aricsun.boot.launch.config;
 
 import org.springframework.context.annotation.Bean;
@@ -10,10 +11,13 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+*/
 /**
+ * 在实现Swagger3的时候被废弃不用
  * @author AricSun
  * @date 2020.12.07 17:02
- */
+ *//*
+
 @Configuration
 @EnableSwagger2  // 表示在当前的项目中启用SwaggerAPI文档
 public class SwaggerConfig {
@@ -38,3 +42,4 @@ public class SwaggerConfig {
                 .build();
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package com.aricsun.boot.launch;
 
 import io.github.swagger2markup.GroupBy;
@@ -14,10 +15,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.net.URL;
 import java.nio.file.Paths;
 
+*/
 /**
  * @author AricSun
  * @date 2020.12.07 21:40
- */
+ *//*
+
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)  // ¾ÍÊÇapplication.ymlµÄ8888
 public class SwaggerExportTests {
@@ -39,3 +42,4 @@ public class SwaggerExportTests {
                 .toFile(Paths.get("src/main/resources/docs/asciidoc"));
     }
 }
+*/
