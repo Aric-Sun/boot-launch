@@ -1,9 +1,12 @@
 package com.aricsun.boot.launch.model;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.annotation.Validated;
+
 
 /**
  * @author AricSun
@@ -12,11 +15,13 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 @PropertySource(value = "classpath:application.yml", ignoreResourceNotFound = true, encoding = "UTF-8")
+@Validated
 @ConfigurationProperties(prefix = "family")
 public class Family {
 
 //    @Value("${family.family-name}")
 
+    @NotEmpty
     private String familyName;
     private Father father;
     private Mother mother;
