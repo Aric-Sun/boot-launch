@@ -1,7 +1,4 @@
-server:
-  port: 8888
-
+# choose which profiles to active
 spring:
-  jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-    time-zone: GMT+8
+  profiles:
+    active: prod
