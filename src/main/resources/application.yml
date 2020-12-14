@@ -1,4 +1,4 @@
 # choose which profiles to active
 spring:
   profiles:
-    active: prod
+    active: dev
