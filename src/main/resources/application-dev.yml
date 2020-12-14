@@ -5,6 +5,11 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+  datasource:
+    url: jdbc:mysql:///demo?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 # 设置盐值（加密解密密钥），我们配置在这星只是为了测试方便
 # 生产坏境中，切记不要这样直接进行设置，可通过环境变量、命令行等形式进行设置。
