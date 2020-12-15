@@ -25,9 +25,12 @@ public class ArticleServiceJDBCImpl implements ArticleService {
     private JdbcTemplate secondaryJdbcTemplate;
 
     @Override
+    @Transactional
     public void saveArticle(Article article) {
         articleJDBCDAO.save(article ,primaryJdbcTemplate);
         articleJDBCDAO.save(article ,secondaryJdbcTemplate);
+
+//        int a = 10/0;  // 人为抛出异常，测试分布式事务的原子性
     }
 
     @Override
@@ -45,7 +48,7 @@ public class ArticleServiceJDBCImpl implements ArticleService {
         /*articleJDBCDAO.deleteById(article.getId());
         articleJDBCDAO.save(article);
 
-        int a = 10/0;  // 认为抛出异常，测试事务的原子性*/
+        int a = 10/0;  // 人为抛出异常，测试事务的原子性*/
     }
 
     @Override
