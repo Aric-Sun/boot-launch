@@ -2,6 +2,7 @@ package com.aricsun.boot.launch.service;
 
 import com.aricsun.boot.launch.dao.ArticleJDBCDAO;
 import com.aricsun.boot.launch.model.Article;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,14 +19,20 @@ public class ArticleServiceJDBCImpl implements ArticleService {
     @Resource
     private ArticleJDBCDAO articleJDBCDAO;
 
+    @Resource
+    private JdbcTemplate primaryJdbcTemplate;
+    @Resource
+    private JdbcTemplate secondaryJdbcTemplate;
+
     @Override
     public void saveArticle(Article article) {
-        articleJDBCDAO.save(article);
+        articleJDBCDAO.save(article ,primaryJdbcTemplate);
+        articleJDBCDAO.save(article ,secondaryJdbcTemplate);
     }
 
     @Override
     public void deleteArticle(Long id) {
-        articleJDBCDAO.deleteById(id);
+        articleJDBCDAO.deleteById(id, null);
     }
 
     @Override
@@ -34,7 +41,7 @@ public class ArticleServiceJDBCImpl implements ArticleService {
         if (article.getId() == null){
             //TODO: 抛出一个自定义异常
         }
-        articleJDBCDAO.updateById(article);
+        articleJDBCDAO.updateById(article, null);
         /*articleJDBCDAO.deleteById(article.getId());
         articleJDBCDAO.save(article);
 
@@ -43,11 +50,11 @@ public class ArticleServiceJDBCImpl implements ArticleService {
 
     @Override
     public Article getArticle(Long id) {
-        return articleJDBCDAO.findById(id);
+        return articleJDBCDAO.findById(id, null);
     }
 
     @Override
     public List<Article> getAll() {
-        return articleJDBCDAO.findAll();
+        return articleJDBCDAO.findAll(null);
     }
 }
