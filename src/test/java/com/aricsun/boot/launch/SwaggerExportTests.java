@@ -22,15 +22,15 @@ import java.nio.file.Paths;
  *//*
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)  // ¾ÍÊÇapplication.ymlµÄ8888
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)  // å°±æ˜¯application.ymlçš„8888
 public class SwaggerExportTests {
 
     @Test
     public void generateAsciiDocs() throws Exception{
-        // Êä³öAscii¸ñÊ½
+        // è¾“å‡ºAsciiæ ¼å¼
         Swagger2MarkupConfig config = new Swagger2MarkupConfigBuilder()
-                .withMarkupLanguage(MarkupLanguage.MARKDOWN)  // ÉèÖÃÉú³É¸ñÊ½£¨ASCIIDOC/MARKDOWN£©
-                .withOutputLanguage(Language.ZH)  // ×ÔÈ»ÓïÑÔÀàĞÍ£¬ZH£ºÖĞÎÄ
+                .withMarkupLanguage(MarkupLanguage.MARKDOWN)  // è®¾ç½®ç”Ÿæˆæ ¼å¼ï¼ˆASCIIDOC/MARKDOWNï¼‰
+                .withOutputLanguage(Language.ZH)  // è‡ªç„¶è¯­è¨€ç±»å‹ï¼ŒZHï¼šä¸­æ–‡
                 .withPathsGroupedBy(GroupBy.TAGS)
                 .withGeneratedExamples()
                 .withoutInlineSchema()

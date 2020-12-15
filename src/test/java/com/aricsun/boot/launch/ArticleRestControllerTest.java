@@ -22,9 +22,9 @@ public class ArticleRestControllerTest {
 
     private static MockMvc mockMvc;
 
-    @BeforeAll  // Ïàµ±ÓÚ¹¹Ôì·½·¨
+    @BeforeAll  // ç›¸å½“äºæ„é€ æ–¹æ³•
     static void setUP(){
-        // Õë¶ÔArticleControllerÕâ¸ö¿ØÖÆ²ã½øĞĞ²âÊÔ
+        // é’ˆå¯¹ArticleControllerè¿™ä¸ªæ§åˆ¶å±‚è¿›è¡Œæµ‹è¯•
         mockMvc = MockMvcBuilders.standaloneSetup(new ArticleController()).build();
     }
 
@@ -33,7 +33,7 @@ public class ArticleRestControllerTest {
         String article = "{\n" +
                 "    \"id\" : \"1\",\n" +
                 "    \"author\" : \"zimug\",\n" +
-                "    \"title\" : \"ÊÖÃşÊÖ½ÌÄã¿ª·¢spring boot\",\n" +
+                "    \"title\" : \"æ‰‹æ‘¸æ‰‹æ•™ä½ å¼€å‘spring boot\",\n" +
                 "    \"content\" : \"c\",\n" +
                 "    \"createTime\" : \"2020/12/05 13:05:24\",\n" +
                 "    \"reader\" : [{\"name\":\"zimug\",\"age\":18},{\"name\":\"kobe\",\"age\":37}]\n" +
@@ -45,7 +45,7 @@ public class ArticleRestControllerTest {
                         .contentType("application/json")
                         .content(article)
         )
-                // ÆÚÍûÖµ£¬ÀàËÆÓÚ¶ÏÑÔassert
+                // æœŸæœ›å€¼ï¼Œç±»ä¼¼äºæ–­è¨€assert
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data.author").value("zimug"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data.reader[0].age").value(18))

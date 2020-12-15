@@ -17,10 +17,10 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<!-- 文件拷贝时的编码 -->
-		<project.build.sourceEncoding>GBK</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>GBK</project.reporting.outputEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<!-- 编译时的编码 -->
-		<maven.compiler.encoding>GBK</maven.compiler.encoding>
+		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 	</properties>
 
 	<dependencies>
@@ -50,8 +50,8 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
 			<optional>true</optional>
-			<scope>true</scope>
 		</dependency>
 
 		<dependency>
@@ -129,7 +129,10 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<fork>true</fork><!-- 如果没有该配置，热部署的devtools不生效 -->
+					<!--fork :  如果没有该项配置devtools不会起作用，即应用不会restart -->
+					<fork>true</fork>
+					<!--支持静态文件热部署-->
+					<addResources>true</addResources>
 				</configuration>
 			</plugin>
 

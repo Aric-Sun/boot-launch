@@ -3,8 +3,8 @@ package com.aricsun.boot.launch.controller;
 import com.aricsun.boot.launch.AjaxResponse;
 import com.aricsun.boot.launch.model.Article;
 import com.aricsun.boot.launch.model.Reader;
-import com.aricsun.boot.launch.service.ArticleService;
 //import io.swagger.annotations.*;
+import com.aricsun.boot.launch.service.ArticleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -15,91 +15,103 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * ÓÉÓÚSwagger3£¨OpenAPI3.0£©µÄÊµÏÖ£¬Swagger2²¿·ÖµÄ×¢½â±»×¢ÊÍµôÁË
+ * ç”±äºSwagger3ï¼ˆOpenAPI3.0ï¼‰çš„å®ç°ï¼ŒSwagger2éƒ¨åˆ†çš„æ³¨è§£è¢«æ³¨é‡Šæ‰äº†
  * @author AricSun
  * @date 2020.12.04 22:18
  */
 @Slf4j
 @RestController
-@RequestMapping("/rest")  // Ïàµ±ÓÚÏÂÃæÂ·¾¶µÄÇ°×º
+@RequestMapping("/rest")  // ç›¸å½“äºä¸‹é¢è·¯å¾„çš„å‰ç¼€
 public class ArticleController {
 
-//    @Resource
-//    ArticleService articleService;
+    @Resource
+    ArticleService articleService;
 
-    //²éÑ¯Ò»ÆªÎÄÕÂ£¬¸ù¾İid
+    //æŸ¥è¯¢ä¸€ç¯‡æ–‡ç« ï¼Œæ ¹æ®id
 //    @RequestMapping(value = "/articles/{id}", method = RequestMethod.GET)
     @GetMapping("/articles/{id}")
-    public AjaxResponse getArticle(@PathVariable("id") Long id){  // PathVariable±íÊ¾´«µİµÄÊÇÂ·¾¶ÉÏµÄ±äÁ¿
-        List<Reader> readers = new ArrayList<Reader>(){{  // ÊµÀı³õÊ¼»¯Æ÷
-         add(new Reader("kobe", 21));
-         add(new Reader("james", 20));
-        }};
+    public AjaxResponse getArticle(@PathVariable("id") Long id){  // PathVariableè¡¨ç¤ºä¼ é€’çš„æ˜¯è·¯å¾„ä¸Šçš„å˜é‡
 
-        Article article = Article.builder()
-                .id(1L)
-                .author("aricSun")
-                .content("Â·¾¶Ñ¡Ôñ¹¤¾ß£ºU")
-                .createTime(new Date())
-                .reader(readers)
-                .title("PS»ù±¾¹¤¾ß")
-                .build();
+        Article article = articleService.getArticle(id);
 
         log.info("article: "+ article);
 
         return AjaxResponse.success(article);
     }
 
-    //ĞÂÔöÒ»ÆªÎÄÕÂ
+    //æŸ¥è¯¢æ‰€æœ‰æ–‡ç« 
+    @GetMapping("/articles")
+    public AjaxResponse getArticle(){  // PathVariableè¡¨ç¤ºä¼ é€’çš„æ˜¯è·¯å¾„ä¸Šçš„å˜é‡
+
+        List<Article> articles = articleService.getAll();
+
+        log.info("articles: "+ articles);
+
+        return AjaxResponse.success(articles);
+    }
+
+    //æ–°å¢ä¸€ç¯‡æ–‡ç« 
 //    @RequestMapping(value = "/articles", method = RequestMethod.POST)
     @PostMapping("/articles")
-    public AjaxResponse saveArticle(@RequestBody Article article/*,  // RequestBody½ÓÊÕÀ´×ÔhttpµÄÒ»¸ö¶ÔÏó£¬¿ÉÇ¶Ì×£¨json£©
-                                    @RequestHeader String aaa*/){  // RequestHeader½ÓÊÕÇëÇóÍ·²ÎÊı
+    public AjaxResponse saveArticle(@RequestBody Article article/*,  // RequestBodyæ¥æ”¶æ¥è‡ªhttpçš„ä¸€ä¸ªå¯¹è±¡ï¼Œå¯åµŒå¥—ï¼ˆjsonï¼‰
+                                    @RequestHeader String aaa*/){  // RequestHeaderæ¥æ”¶è¯·æ±‚å¤´å‚æ•°
+
+        articleService.saveArticle(article);
 
         log.info("saveArticle: "+ article);
 
 //        return AjaxResponse.success(articleService.saveArticle(article));
-        return AjaxResponse.success(article);
+        return AjaxResponse.success();
     }
 
-    /*@ApiOperation(value = "Ìí¼ÓÎÄÕÂ", notes = "Ìí¼ÓĞÂµÄÎÄÕÂ", tags = "Article", httpMethod = "POST")
+    /*@ApiOperation(value = "æ·»åŠ æ–‡ç« ", notes = "æ·»åŠ æ–°çš„æ–‡ç« ", tags = "Article", httpMethod = "POST")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "title", value = "ÎÄÕÂ±êÌâ", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "content", value = "ÎÄÕÂÄÚÈİ", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "author", value = "ÎÄÕÂ×÷Õß", required = true, dataType = "String")
+            @ApiImplicitParam(name = "title", value = "æ–‡ç« æ ‡é¢˜", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "content", value = "æ–‡ç« å†…å®¹", required = true, dataType = "String"),
+            @ApiImplicitParam(name = "author", value = "æ–‡ç« ä½œè€…", required = true, dataType = "String")
     })
     @ApiResponses({
-            @ApiResponse(code = 200, message = "³É¹¦", response = AjaxResponse.class),
+            @ApiResponse(code = 200, message = "æˆåŠŸ", response = AjaxResponse.class),
     })*/
     @PostMapping("/articles2")
     public AjaxResponse saveArticle(@RequestParam  String author,
                                     @RequestParam  String title,
                                     @RequestParam  String content,
                                     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-                                    @RequestParam  Date createTime){  // RequestParam Ö»ÄÜÆ½ÃæµÄÒ»¸öÒ»¸öµØÀ´½ÓÊÕ²ÎÊı(form±íµ¥ºÍget²ÎÊı)
+                                    @RequestParam  Date createTime){  // RequestParam åªèƒ½å¹³é¢çš„ä¸€ä¸ªä¸€ä¸ªåœ°æ¥æ¥æ”¶å‚æ•°(formè¡¨å•å’Œgetå‚æ•°)
+
+        Article article = Article.builder()
+                .author(author)
+                .title(title)
+                .content(content)
+                .createTime(createTime)
+                .build();
+
+        articleService.saveArticle(article);
 
         log.info("saveArticle: "+ createTime);
 
         return AjaxResponse.success();
     }
 
-    //¸üĞÂÒ»ÆªÎÄÕÂ
+    //æ›´æ–°ä¸€ç¯‡æ–‡ç« 
 //    @RequestMapping(value = "/articles", method = RequestMethod.PUT)
     @PutMapping("/articles")
     public AjaxResponse updateArticle(@RequestBody Article article){
-        if (article.getId() == null){
-            //TODO: Å×³öÒ»¸ö×Ô¶¨ÒåÒì³£
-        }
+
+        articleService.updateArticle(article);
 
         log.info("updateArticle: "+ article);
 
         return AjaxResponse.success();
     }
 
-    //É¾³ıÒ»ÆªÎÄÕÂ£¬¸ù¾İid
+    //åˆ é™¤ä¸€ç¯‡æ–‡ç« ï¼Œæ ¹æ®id
 //    @RequestMapping(value = "/articles/{id}", method = RequestMethod.DELETE)
     @DeleteMapping("/articles/{id}")
     public AjaxResponse deleteArticle(@PathVariable("id") Long id){
+
+        articleService.deleteArticle(id);
 
         log.info("deleteArticle: "+ id);
 

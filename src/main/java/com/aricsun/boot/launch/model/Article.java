@@ -17,25 +17,25 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonPropertyOrder(value = {"content", "title"})  // ½«valueÖĞµÄ×Ö¶ÎÌáÇ°²¢°´valueÖĞÅÅÁĞµÄË³ĞòÕ¹Ê¾ÔÚ·µ»ØresponseÖµÉÏ
+//@JsonPropertyOrder(value = {"content", "title"})  // å°†valueä¸­çš„å­—æ®µæå‰å¹¶æŒ‰valueä¸­æ’åˆ—çš„é¡ºåºå±•ç¤ºåœ¨è¿”å›responseå€¼ä¸Š
 public class Article {
     /**
      * id : 1
      * author : zimug
-     * title : ÊÖÃşÊÖ½ÌÄã¿ª·¢spring boot
+     * title : æ‰‹æ‘¸æ‰‹æ•™ä½ å¼€å‘spring boot
      * content : c
      * createTime :
      * reader : [{"name":"zimug","age":18},{"name":"kobe","age":37}]
      */
-    @JsonIgnore  // ºöÂÔÃô¸ĞµÄ×Ö¶Î£¬²»·µ»Ø
+//    @JsonIgnore  // å¿½ç•¥æ•æ„Ÿçš„å­—æ®µï¼Œä¸è¿”å›
     private Long id;
-//    @JsonProperty("auther")  // ±ğÃû£¬¸ü¸ÄresponseµÄ½ÓÊÕ/·µ»Ø×Ö¶ÎÃû£¬Êä³öË³Ğòµôµ½×îºóÒ»¸ö
+    //    @JsonProperty("auther")  // åˆ«åï¼Œæ›´æ”¹responseçš„æ¥æ”¶/è¿”å›å­—æ®µåï¼Œè¾“å‡ºé¡ºåºæ‰åˆ°æœ€åä¸€ä¸ª
     private String author;
     private String title;
     private String content;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    // ¸ü¸Ä´Ëmodel½ÓÊÕ/·µ»ØµÄÈÕÆÚ/Êı×Ö¸ñÊ½£¨»¯£©£¬ÓÃÓÚÔÚÈ«¾ÖÉèÖÃ£¨application-test.yml£©ÏÂµÄÌØÊâÉèÖÃ£¬
+    // æ›´æ”¹æ­¤modelæ¥æ”¶/è¿”å›çš„æ—¥æœŸ/æ•°å­—æ ¼å¼ï¼ˆåŒ–ï¼‰ï¼Œç”¨äºåœ¨å…¨å±€è®¾ç½®ï¼ˆapplication-test.ymlï¼‰ä¸‹çš„ç‰¹æ®Šè®¾ç½®ï¼Œ
     private Date createTime;
-    @JsonInclude(JsonInclude.Include.NON_NULL)  // ²»·µ»Ø¿ÕµÄ×Ö¶Î
+    @JsonInclude(JsonInclude.Include.NON_NULL)  // ä¸è¿”å›ç©ºçš„å­—æ®µ
     private List<Reader> reader;
 }

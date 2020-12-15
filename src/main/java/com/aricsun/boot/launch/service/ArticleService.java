@@ -3,12 +3,22 @@ package com.aricsun.boot.launch.service;
 import com.aricsun.boot.launch.model.Article;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
- * ²âÊÔÒÀÀµ×¢ÈëÓÃ
- * mock²âÊÔ
+ * æµ‹è¯•ä¾èµ–æ³¨å…¥ç”¨
+ * mockæµ‹è¯•
  * @author AricSun
  * @date 2020.12.06 21:17
  */
 public interface ArticleService {
-    public String saveArticle(Article article);
+    void saveArticle(Article article);
+
+    void deleteArticle(Long id);
+
+    void updateArticle(Article article);
+
+    Article getArticle(Long id);
+
+    List<Article> getAll();
 }

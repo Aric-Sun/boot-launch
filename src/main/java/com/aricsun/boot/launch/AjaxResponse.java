@@ -6,35 +6,35 @@ import lombok.Data;
 //import lombok.NoArgsConstructor;
 
 /**
- * ÓĞĞ©ÄÚÈİÒòÎªÊµÏÖswagger3(È¥µôSwagger2µÄÏà¹ØÄÚÈİ)
- * RESTful±ê×¼½Ó¿ÚÏìÓ¦Êı¾İ¸ñÊ½
+ * æœ‰äº›å†…å®¹å› ä¸ºå®ç°swagger3(å»æ‰Swagger2çš„ç›¸å…³å†…å®¹)
+ * RESTfulæ ‡å‡†æ¥å£å“åº”æ•°æ®æ ¼å¼
  * @author AricSun
  * @date 2020.12.04 22:51
  */
 @Data
-//@ApiModel(value = "Í¨ÓÃÏìÓ¦Êı¾İ½á¹¹Àà")  // ÓÃÓÚSwaggerAPIÎÄµµÏÔÊ¾
+//@ApiModel(value = "é€šç”¨å“åº”æ•°æ®ç»“æ„ç±»")  // ç”¨äºSwaggerAPIæ–‡æ¡£æ˜¾ç¤º
 public class AjaxResponse {
-//    @ApiModelProperty(value = "ÇëÇóÊÇ·ñ´¦Àí³É¹¦")
+//    @ApiModelProperty(value = "è¯·æ±‚æ˜¯å¦å¤„ç†æˆåŠŸ")
     private boolean isok;
-//    @ApiModelProperty(value = "ÇëÇóÏìÓ¦×´Ì¬Âë", example = "200¡¢400¡¢500")
-    private int code;  // 200¡¢400¡¢500
-//    @ApiModelProperty(value = "ÇëÇó½á¹ûÃèÊöĞÅÏ¢")
+//    @ApiModelProperty(value = "è¯·æ±‚å“åº”çŠ¶æ€ç ", example = "200ã€400ã€500")
+    private int code;  // 200ã€400ã€500
+//    @ApiModelProperty(value = "è¯·æ±‚ç»“æœæè¿°ä¿¡æ¯")
     private String message;
-//    @ApiModelProperty(value = "ÇëÇó½á¹ûÊı¾İ")
+//    @ApiModelProperty(value = "è¯·æ±‚ç»“æœæ•°æ®")
     private Object data;
 
     public static AjaxResponse success(){
         AjaxResponse ajaxResponse = new AjaxResponse();
         ajaxResponse.setIsok(true);
         ajaxResponse.setCode(200);
-        ajaxResponse.setMessage("ÇëÇóÏìÓ¦³É¹¦£¡");
+        ajaxResponse.setMessage("è¯·æ±‚å“åº”æˆåŠŸï¼");
         return ajaxResponse;
     }
     public static AjaxResponse success(Object obj){
         AjaxResponse ajaxResponse = new AjaxResponse();
         ajaxResponse.setIsok(true);
         ajaxResponse.setCode(200);
-        ajaxResponse.setMessage("ÇëÇóÏìÓ¦³É¹¦£¡");
+        ajaxResponse.setMessage("è¯·æ±‚å“åº”æˆåŠŸï¼");
         ajaxResponse.setData(obj);
         return ajaxResponse;
     }

@@ -19,7 +19,7 @@ public class JacksonTest {
     void testJackson() throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
 
-        List<Reader> readers = new ArrayList<Reader>(){{  // 实例初始化器
+        List<Reader> readers = new ArrayList<Reader>(){{  // 瀹炰緥鍒濆鍖栧櫒
             add(new Reader("kobe", 21));
             add(new Reader("james", 20));
         }};
@@ -27,10 +27,10 @@ public class JacksonTest {
         Article article = Article.builder()
                 .id(2L)
                 .author("aricSun")
-                .content("路径选择工具：U")
+                .content("璺緞閫夋嫨宸ュ叿锛歎")
                 .createTime(new Date())
                 .reader(readers)
-                .title("PS基本工具")
+                .title("PS鍩烘湰宸ュ叿")
                 .build();
 
         // java -> json
@@ -38,7 +38,7 @@ public class JacksonTest {
         System.out.println(jsonStr);
 
         // json -> java Object
-        Article article1 = mapper.readValue("{\"content\":\"路径选择工具：U\",\"title\":\"PS基本工具\",\"createTime\":\"2020-12-06 01:17:45\",\"reader\":[{\"name\":\"kobe\",\"age\":21},{\"name\":\"james\",\"age\":20}],\"author\":\"aricSun\"}",
+        Article article1 = mapper.readValue("{\"content\":\"璺緞閫夋嫨宸ュ叿锛歎\",\"title\":\"PS鍩烘湰宸ュ叿\",\"createTime\":\"2020-12-06 01:17:45\",\"reader\":[{\"name\":\"kobe\",\"age\":21},{\"name\":\"james\",\"age\":20}],\"author\":\"aricSun\"}",
                 Article.class);
         System.out.println(article1);
     }

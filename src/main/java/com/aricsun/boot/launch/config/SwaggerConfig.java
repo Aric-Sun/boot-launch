@@ -13,19 +13,19 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 */
 /**
- * ÔÚÊµÏÖSwagger3µÄÊ±ºò±»·ÏÆú²»ÓÃ
+ * åœ¨å®ç°Swagger3çš„æ—¶å€™è¢«åºŸå¼ƒä¸ç”¨
  * @author AricSun
  * @date 2020.12.07 17:02
  *//*
 
 @Configuration
-@EnableSwagger2  // ±íÊ¾ÔÚµ±Ç°µÄÏîÄ¿ÖĞÆôÓÃSwaggerAPIÎÄµµ
+@EnableSwagger2  // è¡¨ç¤ºåœ¨å½“å‰çš„é¡¹ç›®ä¸­å¯ç”¨SwaggerAPIæ–‡æ¡£
 public class SwaggerConfig {
 
     private ApiInfo apiInfo(){
         return new ApiInfoBuilder()
-                .title("boot launch ÏîÄ¿APIÎÄµµ")
-                .description("¼òµ¥ÓÅÑÅµÄRESTful·ç¸ñ")
+                .title("boot launch é¡¹ç›®APIæ–‡æ¡£")
+                .description("ç®€å•ä¼˜é›…çš„RESTfulé£æ ¼")
                 .termsOfServiceUrl("https://github.com/Aric-Sun/boot-launch")
                 .version("1.0.0")
                 .build();
@@ -36,7 +36,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                // É¨ÃèbasePackage°üÏÂÃæµÄ"/rest/"Â·¾¶ÏÂµÄÄÚÈİ×÷Îª½Ó¿ÚÎÄµµ¹¹½¨µÄÄ¿±ê
+                // æ‰«æbasePackageåŒ…ä¸‹é¢çš„"/rest/"è·¯å¾„ä¸‹çš„å†…å®¹ä½œä¸ºæ¥å£æ–‡æ¡£æ„å»ºçš„ç›®æ ‡
                 .apis(RequestHandlerSelectors.basePackage("com.aricsun.boot.launch"))
                 .paths(PathSelectors.regex("/rest/.*"))
                 .build();

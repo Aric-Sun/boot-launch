@@ -21,23 +21,23 @@ import javax.annotation.Resource;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
 /**
- * Ìí¼Ó²âÊÔ»·¾³ÏÂµÄSpringÉÏÏÂÎÄ»·¾³£¬½â¾öÒÀÀµ×¢ÈëÎÊÌâ
+ * æ·»åŠ æµ‹è¯•ç¯å¢ƒä¸‹çš„Springä¸Šä¸‹æ–‡ç¯å¢ƒï¼Œè§£å†³ä¾èµ–æ³¨å…¥é—®é¢˜
  * @author AricSun
  * @date 2020.12.06 15:21
  */
 @Slf4j
-@AutoConfigureMockMvc  // ×Ô¶¯¹¹½¨mockmvc¶ÔÏó
-@SpringBootTest  // SpringÉÏÏÂÎÄ»·¾³
-@ExtendWith(SpringExtension.class)  // Ìá¹©SpringÔËĞĞÊ±µÄServletÈİÆ÷»·¾³
-// ²»¼ÓÉÏÃæÈıĞĞÖ»ÄÜ²âÊÔcontroller²ãÃæµÄ£¬Èç¹ûÓĞ@Resource»òÕß@AutoWiredÖ®ÀàµÄBeanµÄÒÀÀµ×¢Èë£¬¾ÍÓÃÉÏÃæµÄ×¢½â
+@AutoConfigureMockMvc  // è‡ªåŠ¨æ„å»ºmockmvcå¯¹è±¡
+@SpringBootTest  // Springä¸Šä¸‹æ–‡ç¯å¢ƒ
+@ExtendWith(SpringExtension.class)  // æä¾›Springè¿è¡Œæ—¶çš„Servletå®¹å™¨ç¯å¢ƒ
+// ä¸åŠ ä¸Šé¢ä¸‰è¡Œåªèƒ½æµ‹è¯•controllerå±‚é¢çš„ï¼Œå¦‚æœæœ‰@Resourceæˆ–è€…@AutoWiredä¹‹ç±»çš„Beançš„ä¾èµ–æ³¨å…¥ï¼Œå°±ç”¨ä¸Šé¢çš„æ³¨è§£
 public class ArticleRestControllerTest2 {
 
     @Resource
     private MockMvc mockMvc;
 
-    /*@BeforeAll  // Ïàµ±ÓÚ¹¹Ôì·½·¨
+    /*@BeforeAll  // ç›¸å½“äºæ„é€ æ–¹æ³•
     static void setUP(){
-        // Õë¶ÔArticleControllerÕâ¸ö¿ØÖÆ²ã½øĞĞ²âÊÔ
+        // é’ˆå¯¹ArticleControllerè¿™ä¸ªæ§åˆ¶å±‚è¿›è¡Œæµ‹è¯•
         mockMvc = MockMvcBuilders.standaloneSetup(new ArticleController()).build();
     }*/
 
@@ -46,10 +46,10 @@ public class ArticleRestControllerTest2 {
         String article = "{\n" +
                 "    \"id\" : \"1\",\n" +
                 "    \"author\" : \"zimug\",\n" +
-                "    \"title\" : \"ÊÖÃşÊÖ½ÌÄã¿ª·¢spring boot\",\n" +
+                "    \"title\" : \"æ‰‹æ‘¸æ‰‹æ•™ä½ å¼€å‘spring boot\",\n" +
                 "    \"content\" : \"c\",\n" +
                 "    \"createTime\" : \"2020-12-05 13:05:24\",\n" +
-                // ½â¾ö¶Á²»µ½application.ymlµÄÎÊÌâµ¼ÖÂÊ±¼ä¸ñÊ½±¨´í£¬¾ÍÊÇÈ±ÉÙSpring»·¾³£¬¼ûÀàÇ°µÄÈı¸ö×¢½â
+                // è§£å†³è¯»ä¸åˆ°application.ymlçš„é—®é¢˜å¯¼è‡´æ—¶é—´æ ¼å¼æŠ¥é”™ï¼Œå°±æ˜¯ç¼ºå°‘Springç¯å¢ƒï¼Œè§ç±»å‰çš„ä¸‰ä¸ªæ³¨è§£
                 "    \"reader\" : [{\"name\":\"zimug\",\"age\":18},{\"name\":\"kobe\",\"age\":37}]\n" +
                 "}";
 
@@ -59,7 +59,7 @@ public class ArticleRestControllerTest2 {
                         .contentType("application/json")
                         .content(article)
         )
-                // ÆÚÍûÖµ£¬ÀàËÆÓÚ¶ÏÑÔassert
+                // æœŸæœ›å€¼ï¼Œç±»ä¼¼äºæ–­è¨€assert
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data.author").value("zimug"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.data.reader[0].age").value(18))

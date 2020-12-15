@@ -16,11 +16,11 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 
 /**
- * ×Ô¶¨ÒåÊı¾İ´¦Àí¸ñÊ½£¬´úÌæÄ¬ÈÏµÄĞòÁĞ»¯Óë·´ĞòÁĞ»¯²Ù×÷£¨Excel£©
+ * è‡ªå®šä¹‰æ•°æ®å¤„ç†æ ¼å¼ï¼Œä»£æ›¿é»˜è®¤çš„åºåˆ—åŒ–ä¸ååºåˆ—åŒ–æ“ä½œï¼ˆExcelï¼‰
  * @author AricSun
  * @date 2020.12.05 17:15
  */
-//@Service  // ÒÀÀµ×¢Èë£¬½»¸øSpringÈİÆ÷£¬ÓÉÈİÆ÷È¥´´½¨¶ÔÏó
+//@Service  // ä¾èµ–æ³¨å…¥ï¼Œäº¤ç»™Springå®¹å™¨ï¼Œç”±å®¹å™¨å»åˆ›å»ºå¯¹è±¡
 public class ResponseToXlsConverter extends AbstractHttpMessageConverter<AjaxResponse> {
     private static final MediaType EXCEL_TYPE = MediaType.valueOf("application/vnd.ms-excel");
 
@@ -28,19 +28,19 @@ public class ResponseToXlsConverter extends AbstractHttpMessageConverter<AjaxRes
         super(EXCEL_TYPE);
     }
 
-    // ±íÊ¾Ğè²»ĞèÒªÖ§³Ö
+    // è¡¨ç¤ºéœ€ä¸éœ€è¦æ”¯æŒ
     @Override
     protected boolean supports(Class<?> aClass) {
         return (AjaxResponse.class == aClass);
     }
 
-    //·´ĞòÁĞ»¯¹ı³Ì£¬Õë¶ÔRequestBody
+    //ååºåˆ—åŒ–è¿‡ç¨‹ï¼Œé’ˆå¯¹RequestBody
     @Override
     protected AjaxResponse readInternal(Class<? extends AjaxResponse> aClass, HttpInputMessage httpInputMessage) throws IOException, HttpMessageNotReadableException {
         return null;
     }
 
-    // ĞòÁĞ»¯¹ı³Ì£¬Õë¶ÔResponseBody£¨RestController¼¯³ÉÁËResponseBodyºÍController£©
+    // åºåˆ—åŒ–è¿‡ç¨‹ï¼Œé’ˆå¯¹ResponseBodyï¼ˆRestControlleré›†æˆäº†ResponseBodyå’ŒControllerï¼‰
     @Override
     protected void writeInternal(AjaxResponse ajaxResponse, HttpOutputMessage httpOutputMessage) throws IOException, HttpMessageNotWritableException {
         final Workbook workbook = new HSSFWorkbook();

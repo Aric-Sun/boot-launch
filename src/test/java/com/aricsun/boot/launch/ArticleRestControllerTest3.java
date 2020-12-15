@@ -25,69 +25,70 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
 /**
- * mock²âÊÔ
+ * mockæµ‹è¯•
  * @author AricSun
  * @date 2020.12.06 15:21
  */
 @Slf4j
-@AutoConfigureMockMvc  // ×Ô¶¯¹¹½¨mockmvc¶ÔÏó
-@WebMvcTest(ArticleController.class)  // ËõĞ¡¼ÓÔØ½øÀ´µÄbeanµÄ·¶Î§£¬´ïµ½ÇáÁ¿¼¶µÄĞ§¹û.À¨ºÅÄÚÑ¡¶¨µÄ»°¾ÍÖ»¼ÓÔØÕâÒ»¸ö
-@ExtendWith(SpringExtension.class)  // Ìá¹©SpringÔËĞĞÊ±µÄServletÈİÆ÷»·¾³
-// ²»¼ÓÉÏÃæÈıĞĞÖ»ÄÜ²âÊÔcontroller²ãÃæµÄ£¬Èç¹ûÓĞ@Resource»òÕß@AutoWiredÖ®ÀàµÄBeanµÄÒÀÀµ×¢Èë£¬¾ÍÓÃÉÏÃæµÄ×¢½â
+@AutoConfigureMockMvc  // è‡ªåŠ¨æ„å»ºmockmvcå¯¹è±¡
+@WebMvcTest(ArticleController.class)  // ç¼©å°åŠ è½½è¿›æ¥çš„beançš„èŒƒå›´ï¼Œè¾¾åˆ°è½»é‡çº§çš„æ•ˆæœ.æ‹¬å·å†…é€‰å®šçš„è¯å°±åªåŠ è½½è¿™ä¸€ä¸ª
+@ExtendWith(SpringExtension.class)  // æä¾›Springè¿è¡Œæ—¶çš„Servletå®¹å™¨ç¯å¢ƒ
+// ä¸åŠ ä¸Šé¢ä¸‰è¡Œåªèƒ½æµ‹è¯•controllerå±‚é¢çš„ï¼Œå¦‚æœæœ‰@Resourceæˆ–è€…@AutoWiredä¹‹ç±»çš„Beançš„ä¾èµ–æ³¨å…¥ï¼Œå°±ç”¨ä¸Šé¢çš„æ³¨è§£
 public class ArticleRestControllerTest3 {
 
-    @Resource
-    private MockMvc mockMvc;
+        @Resource
+        private MockMvc mockMvc;
 
-    @MockBean  // Ä£ÄâÆäĞĞÎª
-    private ArticleService articleService;
+        @MockBean  // æ¨¡æ‹Ÿå…¶è¡Œä¸º
+        private ArticleService articleService;
 
-    /*@BeforeAll  // Ïàµ±ÓÚ¹¹Ôì·½·¨
+    /*@BeforeAll  // ç›¸å½“äºæ„é€ æ–¹æ³•
     static void setUP(){
-        // Õë¶ÔArticleControllerÕâ¸ö¿ØÖÆ²ã½øĞĞ²âÊÔ
+        // é’ˆå¯¹ArticleControllerè¿™ä¸ªæ§åˆ¶å±‚è¿›è¡Œæµ‹è¯•
         mockMvc = MockMvcBuilders.standaloneSetup(new ArticleController()).build();
     }*/
 
-    @Test
-    public void saveArticle() throws Exception{
-        String article = "{\n" +
-                "    \"id\" : \"1\",\n" +
-                "    \"author\" : \"zimug\",\n" +
-                "    \"title\" : \"ÊÖÃşÊÖ½ÌÄã¿ª·¢spring boot\",\n" +
-                "    \"content\" : \"c\",\n" +
-                "    \"createTime\" : \"2020-12-05 13:05:24\",\n" +
-                // ÓÖ¶Á²»µ½application.ymlÁË£¬mockBeanÒ»¼ÓÈë¾ÍÕâÑùÁË£¬¿ÉÄÜÄ£Äâ½Ó¿Ú×¢ÈëµÄÊ±ºòÌø¹ıÁËÒ»Ğ©¶«Î÷
-                // ÔİÊ±ÏÈ²»×·¾¿ÁË£¬¹À¼Æ²»ÊÇÊ²Ã´´óÎÊÌâ£¬ÏÈÓÃJsonFormatĞ´ËÀÁË
-                "    \"reader\" : [{\"name\":\"zimug\",\"age\":18},{\"name\":\"kobe\",\"age\":37}]\n" +
-                "}";
+        @Test
+        public void saveArticle() throws Exception{
+                String article = "{\n" +
+                        "    \"id\" : \"1\",\n" +
+                        "    \"author\" : \"zimug\",\n" +
+                        "    \"title\" : \"æ‰‹æ‘¸æ‰‹æ•™ä½ å¼€å‘spring boot\",\n" +
+                        "    \"content\" : \"c\",\n" +
+                        "    \"createTime\" : \"2020-12-05 13:05:24\",\n" +
+                        // åˆè¯»ä¸åˆ°application.ymläº†ï¼ŒmockBeanä¸€åŠ å…¥å°±è¿™æ ·äº†ï¼Œå¯èƒ½æ¨¡æ‹Ÿæ¥å£æ³¨å…¥çš„æ—¶å€™è·³è¿‡äº†ä¸€äº›ä¸œè¥¿
+                        // æš‚æ—¶å…ˆä¸è¿½ç©¶äº†ï¼Œä¼°è®¡ä¸æ˜¯ä»€ä¹ˆå¤§é—®é¢˜ï¼Œå…ˆç”¨JsonFormatå†™æ­»äº†
+                        "    \"reader\" : [{\"name\":\"zimug\",\"age\":18},{\"name\":\"kobe\",\"age\":37}]\n" +
+                        "}";
 
-        // json -> Java
-        ObjectMapper mapper = new ObjectMapper();
-        Article articleObj = mapper.readValue(article, Article.class);
+                // json -> Java
+                ObjectMapper mapper = new ObjectMapper();
+                Article articleObj = mapper.readValue(article, Article.class);
 
-        //mock´ò×®£¨ÉèÖÃÌõ¼ş£©
-        when(articleService.saveArticle(articleObj)).thenReturn("ok");
+                //mockæ‰“æ¡©ï¼ˆè®¾ç½®æ¡ä»¶ï¼‰
+                // P30çš„æ—¶å€™æ³¨é‡Šæ‰ï¼Œå› ä¸ºè¿”å›å€¼æ”¹å˜ï¼Œè€Œä¸”è¯­æ³•ç¼–è¯‘è¿‡ä¸å»
+//        when(articleService.saveArticle(articleObj)).thenReturn("ok");
 
-        MvcResult mvcResult = mockMvc.perform(
-                MockMvcRequestBuilders
-                        .request(HttpMethod.POST, "/rest/articles")
-                        .contentType("application/json")
-                        .content(article)
-        )
-                .andExpect(MockMvcResultMatchers.jsonPath("$.data").value("ok"))
-                .andDo(print())
-                .andReturn();
+                MvcResult mvcResult = mockMvc.perform(
+                        MockMvcRequestBuilders
+                                .request(HttpMethod.POST, "/rest/articles")
+                                .contentType("application/json")
+                                .content(article)
+                )
+                        .andExpect(MockMvcResultMatchers.jsonPath("$.data").value("ok"))
+                        .andDo(print())
+                        .andReturn();
 
-        //Ä£ÄâgetÇëÇó
+                //æ¨¡æ‹Ÿgetè¯·æ±‚
 //        mockMvc.perform(MockMvcRequestBuilders.get("/user/{id}"),userId);
-        // Ä£ÄâpostÇëÇó
+                // æ¨¡æ‹Ÿpostè¯·æ±‚
 //        mockMvc.perform(MockMvcRequestBuilders.post("uri"),parameters);
-        // Ä£ÄâÎÄ¼şÉÏ´«
+                // æ¨¡æ‹Ÿæ–‡ä»¶ä¸Šä¼ 
 //        mockMvc.perform(MockMvcRequestBuilders.multipart("uri").file("fileName", "file".getBytes("UTF-8")));;
-        // Ä£ÄâsessionºÍcookie
+                // æ¨¡æ‹Ÿsessionå’Œcookie
 //        mockMvc.perform(MockMvcRequestBuilders.get("uri").sessionAttr("name", "value"));
 //        mockMvc.perform(MockMvcRequestBuilders.get("uri").cookie(new Cookie("name", "value")));
-        // ÉèÖÃhttp header
+                // è®¾ç½®http header
         /*mockMvc.perform(
                 MockMvcRequestBuilders
                         .get("uri", parameters)
@@ -96,7 +97,7 @@ public class ArticleRestControllerTest3 {
                         .header("", "")
         );*/
 
-        mvcResult.getResponse().setCharacterEncoding("UTF-8");
-        log.info(mvcResult.getResponse().getContentAsString());
-    }
+                mvcResult.getResponse().setCharacterEncoding("UTF-8");
+                log.info(mvcResult.getResponse().getContentAsString());
+        }
 }

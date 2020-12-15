@@ -18,7 +18,7 @@ public class ArticleJDBCDAO {
     @Resource
     private JdbcTemplate jdbcTemplate;
 
-    // save article
+    // add article
     public void save(Article article){
         jdbcTemplate.update("insert into article(author, title, content, create_time) values(?,?,?,?)",
                 article.getAuthor(),
@@ -42,7 +42,7 @@ public class ArticleJDBCDAO {
                 article.getId());
     }
 
-    public Article finById(Long id){
+    public Article findById(Long id){
         return jdbcTemplate.queryForObject("select * from article where id = ?", new Object[]{id},
                 new BeanPropertyRowMapper<>(Article.class));
     }  // queryForObject(), select ONLY ONE record
