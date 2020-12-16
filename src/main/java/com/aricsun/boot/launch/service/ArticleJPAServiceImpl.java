@@ -5,6 +5,7 @@ import com.aricsun.boot.launch.model.Article;
 import com.aricsun.boot.launch.model.ArticleVO;
 import com.aricsun.boot.launch.utils.DozerUtils;
 import org.dozer.Mapper;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.Optional;
  * @author AricSun
  * @date 2020.12.16 21:50
  */
+@Service
 public class ArticleJPAServiceImpl implements ArticleService {
 
     // 讲JPA仓库对象注入

@@ -1,6 +1,7 @@
 package com.aricsun.boot.launch;
 
 import com.aricsun.boot.launch.model.Article;
+import com.aricsun.boot.launch.model.ArticleVO;
 import com.aricsun.boot.launch.model.Reader;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,7 +25,7 @@ public class JacksonTest {
             add(new Reader("james", 20));
         }};
 
-        Article article = Article.builder()
+        ArticleVO article = ArticleVO.builder()
                 .id(2L)
                 .author("aricSun")
                 .content("路径选择工具：U")

@@ -9,4 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @date 2020.12.16 21:38
  */
 public interface ArticleRepository extends JpaRepository<Article, Long> {
+
+    // 注意这个方法的名称，jPA会根据方法名自动生成SQL执行
+    Article findByAuthor(String author);
 }
