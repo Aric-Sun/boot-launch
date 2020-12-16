@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 @Configuration
 public class DataSourceConfig {
 
-    /*@Primary  // 当一个接口有多个实现类（对象）的时候，默认选择这个实现类
+    @Primary  // 当一个接口有多个实现类（对象）的时候，默认选择这个实现类
     @Bean("primaryDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.primary")  // demo
     public DataSource primaryDataSource(){
@@ -30,9 +30,10 @@ public class DataSourceConfig {
     @ConfigurationProperties(prefix = "spring.datasource.secondary")  // demo2
     public DataSource secondaryDataSource(){
         return DataSourceBuilder.create().build();
-    }*/
+    }
 
-    @Bean(initMethod = "init", destroyMethod = "close", name = "primaryDataSource")
+    // 由于使用SpringDataJPA，此部分停用
+    /*@Bean(initMethod = "init", destroyMethod = "close", name = "primaryDataSource")
     @Primary
     @ConfigurationProperties(prefix = "primarydb")
     public DataSource primaryDataSource(){
@@ -45,7 +46,7 @@ public class DataSourceConfig {
     public DataSource secondaryDataSource(){
         // 这里是关键，返回的是AtomikosDataSourceBean，所有的配置属性也都是注入到这个类里面
         return new AtomikosDataSourceBean();
-    }
+    }*/
 
     @Bean("primaryJdbcTemplate")
     public JdbcTemplate primaryJdbcTemplate(

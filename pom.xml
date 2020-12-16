@@ -126,6 +126,24 @@
 			<artifactId>spring-boot-starter-jta-atomikos</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.dozermapper</groupId>
+			<artifactId>dozer-spring-boot-starter</artifactId>
+			<version>6.2.0</version>
+		</dependency>
+
+		<!--Lists-->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>27.1-jre</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

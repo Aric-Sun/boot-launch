@@ -2,6 +2,7 @@ package com.aricsun.boot.launch.controller;
 
 import com.aricsun.boot.launch.AjaxResponse;
 import com.aricsun.boot.launch.model.Article;
+import com.aricsun.boot.launch.model.ArticleVO;
 import com.aricsun.boot.launch.model.Reader;
 //import io.swagger.annotations.*;
 import com.aricsun.boot.launch.service.ArticleService;
@@ -32,7 +33,7 @@ public class ArticleController {
     @GetMapping("/articles/{id}")
     public AjaxResponse getArticle(@PathVariable("id") Long id){  // PathVariable表示传递的是路径上的变量
 
-        Article article = articleService.getArticle(id);
+        ArticleVO article = articleService.getArticle(id);
 
         log.info("article: "+ article);
 
@@ -43,7 +44,7 @@ public class ArticleController {
     @GetMapping("/articles")
     public AjaxResponse getArticle(){  // PathVariable表示传递的是路径上的变量
 
-        List<Article> articles = articleService.getAll();
+        List<ArticleVO> articles = articleService.getAll();
 
         log.info("articles: "+ articles);
 
@@ -53,7 +54,7 @@ public class ArticleController {
     //新增一篇文章
 //    @RequestMapping(value = "/articles", method = RequestMethod.POST)
     @PostMapping("/articles")
-    public AjaxResponse saveArticle(@RequestBody Article article/*,  // RequestBody接收来自http的一个对象，可嵌套（json）
+    public AjaxResponse saveArticle(@RequestBody ArticleVO article/*,  // RequestBody接收来自http的一个对象，可嵌套（json）
                                     @RequestHeader String aaa*/){  // RequestHeader接收请求头参数
 
         articleService.saveArticle(article);
@@ -80,7 +81,7 @@ public class ArticleController {
                                     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
                                     @RequestParam  Date createTime){  // RequestParam 只能平面的一个一个地来接收参数(form表单和get参数)
 
-        Article article = Article.builder()
+        ArticleVO article = ArticleVO.builder()
                 .author(author)
                 .title(title)
                 .content(content)
@@ -97,7 +98,7 @@ public class ArticleController {
     //更新一篇文章
 //    @RequestMapping(value = "/articles", method = RequestMethod.PUT)
     @PutMapping("/articles")
-    public AjaxResponse updateArticle(@RequestBody Article article){
+    public AjaxResponse updateArticle(@RequestBody ArticleVO article){
 
         articleService.updateArticle(article);
 

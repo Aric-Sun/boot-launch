@@ -1,3 +1,4 @@
+/*
 package com.aricsun.boot.launch.service;
 
 import com.aricsun.boot.launch.dao.ArticleJDBCDAO;
@@ -9,10 +10,13 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.List;
 
+*/
 /**
+ * 因使用spring data jpa 而被废弃
  * @author AricSun
  * @date 2020.12.15 0:08
- */
+ *//*
+
 @Service
 public class ArticleServiceJDBCImpl implements ArticleService {
 
@@ -45,10 +49,12 @@ public class ArticleServiceJDBCImpl implements ArticleService {
             //TODO: 抛出一个自定义异常
         }
         articleJDBCDAO.updateById(article, null);
-        /*articleJDBCDAO.deleteById(article.getId());
+        */
+/*articleJDBCDAO.deleteById(article.getId());
         articleJDBCDAO.save(article);
 
-        int a = 10/0;  // 人为抛出异常，测试事务的原子性*/
+        int a = 10/0;  // 人为抛出异常，测试事务的原子性*//*
+
     }
 
     @Override
@@ -61,3 +67,4 @@ public class ArticleServiceJDBCImpl implements ArticleService {
         return articleJDBCDAO.findAll(null);
     }
 }
+*/

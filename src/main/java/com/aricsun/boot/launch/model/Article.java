@@ -6,10 +6,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
 /**
+ * PO
  * @author AricSun
  * @date 2020.12.04 21:58
  */
@@ -17,25 +19,17 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-//@JsonPropertyOrder(value = {"content", "title"})  // 将value中的字段提前并按value中排列的顺序展示在返回response值上
+@Entity  // 实体类，接收SpringDataJPA的管理，对应数据库里的一张表
+@Table(name = "article")
 public class Article {
-    /**
-     * id : 1
-     * author : zimug
-     * title : 手摸手教你开发spring boot
-     * content : c
-     * createTime :
-     * reader : [{"name":"zimug","age":18},{"name":"kobe","age":37}]
-     */
-//    @JsonIgnore  // 忽略敏感的字段，不返回
+    @Id  // 主键
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  //自增
     private Long id;
-    //    @JsonProperty("auther")  // 别名，更改response的接收/返回字段名，输出顺序掉到最后一个
+    @Column(nullable = false, length = 32)
     private String author;
+    @Column(nullable = false, unique = true, length = 32)
     private String title;
+    @Column(length = 512)
     private String content;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    // 更改此model接收/返回的日期/数字格式（化），用于在全局设置（application-test.yml）下的特殊设置，
     private Date createTime;
-    @JsonInclude(JsonInclude.Include.NON_NULL)  // 不返回空的字段
-    private List<Reader> reader;
 }
