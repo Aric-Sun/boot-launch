@@ -2,7 +2,7 @@
 package com.aricsun.boot.launch.service;
 
 import com.aricsun.boot.launch.dao.ArticleJDBCDAO;
-import com.aricsun.boot.launch.model.Article;
+import com.aricsun.boot.launch.model.demo.Article;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

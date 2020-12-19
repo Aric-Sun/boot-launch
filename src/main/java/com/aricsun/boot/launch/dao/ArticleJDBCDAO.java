@@ -1,6 +1,6 @@
 package com.aricsun.boot.launch.dao;
 
-import com.aricsun.boot.launch.model.Article;
+import com.aricsun.boot.launch.model.demo.Article;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;

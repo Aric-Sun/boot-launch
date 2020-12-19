@@ -1,6 +1,6 @@
-package com.aricsun.boot.launch.dao;
+package com.aricsun.boot.launch.dao.demo;
 
-import com.aricsun.boot.launch.model.Article;
+import com.aricsun.boot.launch.model.demo.Article;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

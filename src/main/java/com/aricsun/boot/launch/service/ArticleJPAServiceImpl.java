@@ -1,7 +1,7 @@
 package com.aricsun.boot.launch.service;
 
-import com.aricsun.boot.launch.dao.ArticleRepository;
-import com.aricsun.boot.launch.model.Article;
+import com.aricsun.boot.launch.dao.demo.ArticleRepository;
+import com.aricsun.boot.launch.model.demo.Article;
 import com.aricsun.boot.launch.model.ArticleVO;
 import com.aricsun.boot.launch.utils.DozerUtils;
 import org.dozer.Mapper;

@@ -1,6 +1,5 @@
-package com.aricsun.boot.launch.model;
+package com.aricsun.boot.launch.model.demo;
 
-import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 /**
  * PO
