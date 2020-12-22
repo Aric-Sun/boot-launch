@@ -7,12 +7,13 @@ spring:
     time-zone: GMT+8
   datasource:
     primary:
-      jdbc-url: jdbc:mysql:///demo?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false
+      # mysqlXADataSource 需要url 而不是jdbc-url
+      url: jdbc:mysql:///demo?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false
       username: root
       password: root
       driver-class-name: com.mysql.cj.jdbc.Driver
     secondary:
-      jdbc-url: jdbc:mysql:///demo2?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false
+      url: jdbc:mysql:///demo2?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false
       username: root
       password: root
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -22,6 +23,14 @@ spring:
       ddl-auto: validate
     database: mysql
     show-sql: true
+  jta:
+    atomikos:
+      datasource:
+        max-pool-size: 20
+        borrow-connection-timeout: 60
+      connectionfactory:
+        max-pool-size: 20
+        borrow-connection-timeout: 60
 
 
 # 设置盐值（加密解密密钥），我们配置在这星只是为了测试方便
