@@ -6,22 +6,23 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
   datasource:
-#    primary:
+    primary:
       # mysqlXADataSource 需要url 而不是jdbc-url
-    url: jdbc:mysql:///demo?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql:///demo?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    secondary:
+      jdbc-url: jdbc:mysql:///demo2?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
 mybatis:
   mapper-locations: classpath:generator:/*.xml
 logging:
   level:
     com.aricsun.boot.launch: debug
-#    secondary:
-#      url: jdbc:mysql:///demo2?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false
-#      username: root
-#      password: root
-#      driver-class-name: com.mysql.cj.jdbc.Driver
+
 
 # 由于使用Mybatis，以下配置停用
 #  jpa:

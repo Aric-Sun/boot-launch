@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
 @ImportResource(locations = {"classpath:beans.xml"})
-@MapperScan(basePackages = {"com.aricsun.boot.launch.mapper"})
+//@MapperScan(basePackages = {"com.aricsun.boot.launch.mapper"})
 public class BootLaunchApplication {
 
 	public static void main(String[] args) {
