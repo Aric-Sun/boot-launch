@@ -6,31 +6,38 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
   datasource:
-    primary:
+#    primary:
       # mysqlXADataSource 需要url 而不是jdbc-url
-      url: jdbc:mysql:///demo?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false
-      username: root
-      password: root
-      driver-class-name: com.mysql.cj.jdbc.Driver
-    secondary:
-      url: jdbc:mysql:///demo2?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false
-      username: root
-      password: root
-      driver-class-name: com.mysql.cj.jdbc.Driver
-  jpa:
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    hibernate:
-      ddl-auto: validate
-    database: mysql
-    show-sql: true
-  jta:
-    atomikos:
-      datasource:
-        max-pool-size: 20
-        borrow-connection-timeout: 60
-      connectionfactory:
-        max-pool-size: 20
-        borrow-connection-timeout: 60
+    url: jdbc:mysql:///demo?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  mapper-locations: classpath:generator:/*.xml
+logging:
+  level:
+    com.aricsun.boot.launch: debug
+#    secondary:
+#      url: jdbc:mysql:///demo2?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false
+#      username: root
+#      password: root
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+
+# 由于使用Mybatis，以下配置停用
+#  jpa:
+#    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+#    hibernate:
+#      ddl-auto: validate
+#    database: mysql
+#    show-sql: true
+#  jta:
+#    atomikos:
+#      datasource:
+#        max-pool-size: 20
+#        borrow-connection-timeout: 60
+#      connectionfactory:
+#        max-pool-size: 20
+#        borrow-connection-timeout: 60
 
 
 # 设置盐值（加密解密密钥），我们配置在这星只是为了测试方便
