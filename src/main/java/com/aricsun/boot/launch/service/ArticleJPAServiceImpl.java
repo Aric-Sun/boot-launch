@@ -36,7 +36,7 @@
 //        Article articlePO = dozerMapper.map(articleVO, Article.class);
 //        articleRepository.save(articlePO);
 //        messageRepository.save(new Message(null, "aric", "去你妈的sb"));
-////        int a = 10/0;  //手动设置一场，测试transactional事务的原子性（JPA+atomikos）
+////        int a = 10/0;  //手动设置异常，测试transactional事务的原子性（JPA+atomikos）
 //    }
 //
 //    @Override

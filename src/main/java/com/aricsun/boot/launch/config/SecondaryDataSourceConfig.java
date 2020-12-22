@@ -1,5 +1,6 @@
 package com.aricsun.boot.launch.config;
 
+import com.atomikos.jdbc.AtomikosDataSourceBean;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -25,9 +26,9 @@ import javax.sql.DataSource;
 public class SecondaryDataSourceConfig {
 
     @Bean(name = "secondaryDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.secondary")  // demo
+    @ConfigurationProperties(prefix = "secondarydb")  // demo2
     public DataSource secondaryDataSource(){
-        return DataSourceBuilder.create().build();
+        return new AtomikosDataSourceBean();
     }
 
     @Bean(name = "secondarySqlSessionFactory")
@@ -41,11 +42,12 @@ public class SecondaryDataSourceConfig {
         return bean.getObject();
     }
 
-    @Bean(name = "secondaryTransactionManager")
-    public DataSourceTransactionManager secondaryTransactionManager(
-            @Qualifier("secondaryDataSource") DataSource dataSource){
-        return new DataSourceTransactionManager(dataSource);
-    }
+     // 由于分布式事务要使用统一的事务管理器，故停用单一的事务管理器
+//    @Bean(name = "secondaryTransactionManager")
+//    public DataSourceTransactionManager secondaryTransactionManager(
+//            @Qualifier("secondaryDataSource") DataSource dataSource){
+//        return new DataSourceTransactionManager(dataSource);
+//    }
 
     // 函数操作模板类
     @Bean(name = "secondarySqlSessionTemplate")

@@ -8,6 +8,7 @@ import com.aricsun.boot.launch.model.ArticleVO;
 import com.aricsun.boot.launch.utils.DozerUtils;
 import org.dozer.Mapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -35,6 +36,7 @@ public class ArticleServiceImpl implements ArticleService {
      * @Return void
      */
     @Override
+    @Transactional
     public void saveArticle(ArticleVO article) {
         Article articlePO = dozerMapper.map(article, Article.class);  // 注意Article的包，是com.aricsun.boot.launch.generator.Article;
         articleMapper.insert(articlePO);
@@ -43,6 +45,8 @@ public class ArticleServiceImpl implements ArticleService {
         message.setContent("老是换来换去的烦不烦");
         message.setName("aricsun");
         messageMapper.insert(message);
+
+//        int a = 10/0;  // 手动设置异常，测试transactional事务的原子性（Mybatis+atomikos）
     }
 
     /*

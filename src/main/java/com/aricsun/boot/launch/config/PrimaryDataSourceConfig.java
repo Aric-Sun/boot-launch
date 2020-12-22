@@ -1,5 +1,6 @@
 package com.aricsun.boot.launch.config;
 
+import com.atomikos.jdbc.AtomikosDataSourceBean;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -17,6 +18,7 @@ import javax.sql.DataSource;
 
 /**
  * mybatis多数据源
+ * +atomikos
  * @author AricSun
  * @date 2020.12.22 22:06
  */
@@ -27,9 +29,9 @@ public class PrimaryDataSourceConfig {
 
     @Primary
     @Bean(name = "primaryDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.primary")  // demo
+    @ConfigurationProperties(prefix = "primarydb")  // demo application-dev.yml
     public DataSource primaryDataSource(){
-        return DataSourceBuilder.create().build();
+        return new AtomikosDataSourceBean();  // 支持分布式事务的数据源
     }
 
     @Primary
@@ -44,12 +46,13 @@ public class PrimaryDataSourceConfig {
         return bean.getObject();
     }
 
-    @Primary
-    @Bean(name = "primaryTransactionManager")
-    public DataSourceTransactionManager primaryTransactionManager(
-            @Qualifier("primaryDataSource") DataSource dataSource){
-        return new DataSourceTransactionManager(dataSource);
-    }
+    // 由于分布式事务要使用统一的事务管理器，故停用单一的事务管理器
+//    @Primary
+//    @Bean(name = "primaryTransactionManager")
+//    public DataSourceTransactionManager primaryTransactionManager(
+//            @Qualifier("primaryDataSource") DataSource dataSource){
+//        return new DataSourceTransactionManager(dataSource);
+//    }
 
     // 函数操作模板类
     @Primary
