@@ -1,4 +1,4 @@
-package com.aricsun.boot.launch.model.demo;
+package com.aricsun.boot.launch.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

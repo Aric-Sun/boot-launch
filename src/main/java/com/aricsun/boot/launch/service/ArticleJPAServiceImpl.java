@@ -2,7 +2,7 @@
 //
 //import com.aricsun.boot.launch.dao.demo.ArticleRepository;
 //import com.aricsun.boot.launch.dao.demo2.MessageRepository;
-//import com.aricsun.boot.launch.model.demo.Article;
+//import com.aricsun.boot.launch.model.Article;
 //import com.aricsun.boot.launch.model.ArticleVO;
 //import com.aricsun.boot.launch.model.demo2.Message;
 //import com.aricsun.boot.launch.utils.DozerUtils;

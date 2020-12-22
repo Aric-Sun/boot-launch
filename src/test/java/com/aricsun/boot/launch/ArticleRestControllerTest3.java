@@ -1,7 +1,7 @@
 package com.aricsun.boot.launch;
 
 import com.aricsun.boot.launch.controller.ArticleController;
-import com.aricsun.boot.launch.model.demo.Article;
+import com.aricsun.boot.launch.model.Article;
 import com.aricsun.boot.launch.service.ArticleService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;

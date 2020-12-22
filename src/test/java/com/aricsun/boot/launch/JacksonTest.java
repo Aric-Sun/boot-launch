@@ -1,6 +1,6 @@
 package com.aricsun.boot.launch;
 
-import com.aricsun.boot.launch.model.demo.Article;
+import com.aricsun.boot.launch.model.Article;
 import com.aricsun.boot.launch.model.ArticleVO;
 import com.aricsun.boot.launch.model.Reader;
 import com.fasterxml.jackson.core.JsonProcessingException;
