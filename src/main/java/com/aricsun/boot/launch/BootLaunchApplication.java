@@ -1,7 +1,7 @@
 package com.aricsun.boot.launch;
 
 import com.aricsun.boot.launch.model.LombokPOJO;
-import org.mybatis.spring.annotation.MapperScan;
+//import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportResource;

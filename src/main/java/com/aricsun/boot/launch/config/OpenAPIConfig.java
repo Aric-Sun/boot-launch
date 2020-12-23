@@ -27,4 +27,12 @@ public class OpenAPIConfig {
                 .pathsToMatch("/hello/**")
                 .build();
     }
+
+    @Bean
+    public GroupedOpenApi articlesApi(){
+        return GroupedOpenApi.builder()
+                .group("auto-rest")  // 对应教程里的articles
+                .pathsToMatch("/auto-rest/**")
+                .build();
+    }
 }
