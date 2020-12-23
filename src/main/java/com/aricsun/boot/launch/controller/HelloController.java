@@ -4,6 +4,8 @@ import com.aricsun.boot.launch.model.LombokPOJO;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -16,7 +18,7 @@ import java.io.FileReader;
 @RestController
 public class HelloController {
     @RequestMapping("/hello")
-    public String hello(String name){
+    public String hello(HttpServletRequest request, HttpSession session){
 
         // codota 自动代码补全示例
 //        String path = "a.txt";
@@ -30,6 +32,17 @@ public class HelloController {
         //rainbow brackets 彩虹括号代码示例 取消下面的注释查看效果
 //        (((((((((((((((((((((((((((((((((((((((((((())))))))))))))))))))))))))))))))))))))))))))
 
-        return "hello world, "+ name;
+        // 操作attribute
+        request.setAttribute("a", "a");
+        request.setAttribute("a", "b");
+        request.getAttribute("a");
+        request.removeAttribute("a");
+
+        // 操作session
+        session.setAttribute("c", "c");
+        session.getAttribute("c");
+        session.invalidate();
+
+        return "hello world--------";
     }
 }

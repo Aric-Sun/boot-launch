@@ -4,11 +4,13 @@ import com.aricsun.boot.launch.model.LombokPOJO;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
 @ImportResource(locations = {"classpath:beans.xml"})
 @MapperScan(basePackages = {"com.aricsun.boot.launch.mapper"})
+@ServletComponentScan  // （ServletListener）：WebListener也是组件的一种
 public class BootLaunchApplication {
 
 	public static void main(String[] args) {
