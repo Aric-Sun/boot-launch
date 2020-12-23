@@ -12,8 +12,18 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  freemarker:
+    cache: false  # 缓存配置 开发阶段应该配置为false 因为经常会改
+    suffix: .ftl
+    charset: UTF-8
+    template-loader-path: classpath:/templates/
+
 mybatis:
-  mapper-locations: classpath:generator:/*.xml
+  mapper-locations: classpath:generator/*.xml
 logging:
   level:
     com.aricsun.boot.launch: debug
