@@ -12,8 +12,15 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
-mybatis:
-  mapper-locations: classpath:generator:/*.xml
+  thymeleaf:
+    cache: false # 后用缓存：建议生产开启
+    check-template-location: true # 检查模版是否存在
+    enabled: true # 是否启用
+    encoding: UTF-8 # 模版编码
+    excluded-view-names: # 应该从解析中排除的视图名称列表（用逗号分闹）
+    mode: HTML5 # 模版模式
+    prefix: classpath:/templates/ # 版存放路径
+    suffix: .html # 模版后象
 logging:
   level:
     com.aricsun.boot.launch: debug
