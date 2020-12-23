@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css"/>
-    <style type="text/css">
-        .odd{
-            background-color: #7d7d7d;
-        }
-    </style>
-</head>
+
+<div th:replace="common/head::static('页面标题')"></div>
 <body>
 <div class="container">
     <table class="table">
@@ -52,5 +44,8 @@
 </div>
 <script src="/webjars/jquery/jquery.min.js"></script>
 <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<script th:inline="javascript">
+    var LANG_COUNTRY = [[${#locale.getLanguage()+'_'+#locale.getCountry()}]]; // [[]]， thymeleaf内联js的使用，可以让js接收到thymeleaf的变量
+</script>
 </body>
 </html>
