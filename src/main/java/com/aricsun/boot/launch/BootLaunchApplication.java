@@ -10,7 +10,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
-@ImportResource(locations = {"classpath:beans.xml"})
+@ImportResource(locations = {"classpath:otherconfig/beans.xml"})
 @MapperScan(basePackages = {"com.aricsun.boot.launch.mapper"})
 @ServletComponentScan  // （ServletListener）：WebListener也是组件的一种,WebFilter同样
 public class BootLaunchApplication {

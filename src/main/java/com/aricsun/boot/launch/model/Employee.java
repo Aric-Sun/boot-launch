@@ -14,7 +14,7 @@ import java.util.Map;
  */
 @Data
 @Configuration
-@PropertySource(value = "classpath:employee.properties", encoding = "UTF-8")
+@PropertySource(value = "classpath:otherconfig/employee.properties", encoding = "UTF-8")
 public class Employee {
 
     @Value("#{'${employee.names}'.split('\\|')}")  // SpEL, split with '|'

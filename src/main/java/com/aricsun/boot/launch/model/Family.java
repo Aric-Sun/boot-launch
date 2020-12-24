@@ -18,7 +18,7 @@ import org.springframework.validation.annotation.Validated;
 @PropertySource(value = "classpath:application.yml", ignoreResourceNotFound = true, encoding = "UTF-8")
 @Validated
 @ConfigurationProperties(prefix = "family")
-@PropertySource(value = "classpath:family.yml", factory = MixPropertySourceFactory.class)
+@PropertySource(value = "classpath:otherconfig/family.yml", factory = MixPropertySourceFactory.class)
 public class Family {
 
 //    @Value("${family.family-name}")

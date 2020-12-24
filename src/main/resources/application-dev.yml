@@ -1,8 +1,14 @@
 server:
   port: 8888
+  # 以下代码配置http端口，使其能够跳转到https的8888端口上
+  httpPort: 80
   # 调整嵌入式容器（Tomcat等）的运行参数，第一种方法，修改配置文件，如下
 #  tomcat:
 #    max-connections: 8192
+  ssl:
+    key-store: classpath:otherconfig/aricsun-ssL-key.p12
+    key-store-password: 123456
+    key-store-type: PKCS12
 
 spring:
   jackson:
