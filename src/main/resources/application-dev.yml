@@ -1,5 +1,8 @@
 server:
   port: 8888
+  # 调整嵌入式容器（Tomcat等）的运行参数，第一种方法，修改配置文件，如下
+#  tomcat:
+#    max-connections: 8192
 
 spring:
   jackson:
