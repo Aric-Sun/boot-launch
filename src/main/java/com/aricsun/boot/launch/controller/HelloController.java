@@ -1,9 +1,12 @@
 package com.aricsun.boot.launch.controller;
 
+import com.aricsun.boot.launch.config.event.MyEvent;
 import com.aricsun.boot.launch.model.LombokPOJO;
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.BufferedReader;
@@ -17,8 +20,15 @@ import java.io.FileReader;
 
 @RestController
 public class HelloController {
+
+    @Resource
+    private
+    ApplicationContext applicationContext;
+
     @RequestMapping("/hello")
     public String hello(HttpServletRequest request, HttpSession session){
+
+
 
         // codota 自动代码补全示例
 //        String path = "a.txt";
@@ -32,17 +42,21 @@ public class HelloController {
         //rainbow brackets 彩虹括号代码示例 取消下面的注释查看效果
 //        (((((((((((((((((((((((((((((((((((((((((((())))))))))))))))))))))))))))))))))))))))))))
 
-        // 操作attribute
-        request.setAttribute("a", "a");
-        request.setAttribute("a", "b");
-        request.getAttribute("a");
-        request.removeAttribute("a");
+//        // 操作attribute
+//        request.setAttribute("a", "a");
+//        request.setAttribute("a", "b");
+//        request.getAttribute("a");
+//        request.removeAttribute("a");
+//
+//        // 操作session
+//        session.setAttribute("c", "c");
+//        session.getAttribute("c");
+//        session.invalidate();
 
-        // 操作session
-        session.setAttribute("c", "c");
-        session.getAttribute("c");
-        session.invalidate();
+        String eventMessage = "事件测试";
+        //事件发布，在任何地方都可以
+        applicationContext.publishEvent(new MyEvent(eventMessage));
 
-        return "hello world--------";
+        return "hello world--------" + eventMessage;
     }
 }

@@ -22,6 +22,11 @@ spring:
     charset: UTF-8
     template-loader-path: classpath:/templates/
 
+# 第三种注册自定义事件监听器的方法
+context:
+  listener:
+    classes: com.aricsun.boot.launch.config.event.MyListener3
+
 mybatis:
   mapper-locations: classpath:generator/*.xml
 logging:
