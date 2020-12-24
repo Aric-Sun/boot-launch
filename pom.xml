@@ -27,7 +27,19 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<!--如此切换内置web容器, 先排除掉tomcat-->
+<!--			<exclusions>-->
+<!--				<exclusion>-->
+<!--					<artifactId>org.springframework.boot</artifactId>-->
+<!--					<groupId>spring-boot-starter-tomcat</groupId>-->
+<!--				</exclusion>-->
+<!--			</exclusions>-->
 		</dependency>
+		<!--如此切换内置web容器, 再加上jetty或者undertow-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-undertow</artifactId>-->
+<!--		</dependency>-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
