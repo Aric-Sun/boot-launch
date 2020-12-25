@@ -2,6 +2,8 @@ package com.aricsun.boot.launch;
 
 //import io.swagger.annotations.ApiModel;
 //import io.swagger.annotations.ApiModelProperty;
+import com.aricsun.boot.launch.exception.CustomException;
+import com.aricsun.boot.launch.exception.CustomExceptionType;
 import lombok.Data;
 //import lombok.NoArgsConstructor;
 
@@ -22,6 +24,25 @@ public class AjaxResponse {
     private String message;
 //    @ApiModelProperty(value = "请求结果数据")
     private Object data;
+
+    private AjaxResponse(){}
+
+    public static AjaxResponse error(CustomException e){
+        AjaxResponse resultBean = new AjaxResponse();
+        resultBean.setIsok(false);
+        resultBean.setCode(e.getCode());
+        resultBean.setMessage(e.getMessage());
+        return resultBean;
+    }
+
+    public static AjaxResponse error(CustomExceptionType customExceptionType,
+                                     String errorMessage){
+        AjaxResponse resultBean = new AjaxResponse();
+        resultBean.setIsok(false);
+        resultBean.setCode(customExceptionType.getCode());
+        resultBean.setMessage(errorMessage);
+        return resultBean;
+    }
 
     public static AjaxResponse success(){
         AjaxResponse ajaxResponse = new AjaxResponse();
