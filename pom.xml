@@ -10,6 +10,7 @@
 	</parent>
 	<groupId>com.aricsun</groupId>
 	<artifactId>boot-launch</artifactId>
+	<packaging>war</packaging>
 	<version>1.0.0</version>
 	<name>boot-launch</name>
 	<description>Spring Boot 从青铜到王者</description>
@@ -28,12 +29,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 			<!--如此切换内置web容器, 先排除掉tomcat-->
-<!--			<exclusions>-->
-<!--				<exclusion>-->
-<!--					<artifactId>org.springframework.boot</artifactId>-->
-<!--					<groupId>spring-boot-starter-tomcat</groupId>-->
-<!--				</exclusion>-->
-<!--			</exclusions>-->
+			<exclusions>
+				<exclusion>
+					<artifactId>org.springframework.boot</artifactId>
+					<groupId>spring-boot-starter-tomcat</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<!--如此切换内置web容器, 再加上jetty或者undertow-->
 <!--		<dependency>-->
@@ -45,7 +46,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-<!--			<exclusions>-->
+			<!--			<exclusions>-->
 <!--				<exclusion>-->
 <!--					<groupId>com.vaadin.external.google</groupId>-->
 <!--					<artifactId>android-json</artifactId>-->
@@ -199,6 +200,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>boot-launch</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
