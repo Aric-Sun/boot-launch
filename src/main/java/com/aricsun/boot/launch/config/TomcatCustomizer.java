@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
  * @author AricSun
  * @date 2020.12.25 0:15
  */
-@Configuration
+//@Configuration  // 由于postman插件不支持https，而安装版又太大还强制安装c盘，故先去掉https支持了，
 public class TomcatCustomizer {
 
     @Value("${server.httpPort}")

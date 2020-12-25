@@ -35,6 +35,14 @@ public class AjaxResponse {
         return resultBean;
     }
 
+    /*
+     * function: 可以将错误信息翻译（面向用户友好）的时机推迟到调用此方法的时候
+     * 即：在写功能代码的时候，可以在手动抛出异常的时候写上错误信息，也可以在返回给前端的时候再写上
+     * 一共三层，1，枚举类里默认的，2. 异常类写上的， 3. 调用ajaxResponse返回时写的
+     * 从左往右依次覆盖左边的信息
+     * @Param [customExceptionType, errorMessage]
+     * @Return com.aricsun.boot.launch.AjaxResponse
+     */
     public static AjaxResponse error(CustomExceptionType customExceptionType,
                                      String errorMessage){
         AjaxResponse resultBean = new AjaxResponse();

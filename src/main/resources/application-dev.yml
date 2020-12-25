@@ -5,10 +5,11 @@ server:
   # 调整嵌入式容器（Tomcat等）的运行参数，第一种方法，修改配置文件，如下
 #  tomcat:
 #    max-connections: 8192
-  ssl:
-    key-store: classpath:otherconfig/aricsun-ssL-key.p12
-    key-store-password: 123456
-    key-store-type: PKCS12
+# 由于postman插件不支持https，而安装版又太大还强制安装c盘，故先去掉https支持了，
+#  ssl:
+#    key-store: classpath:otherconfig/aricsun-ssL-key.p12
+#    key-store-password: 123456
+#    key-store-type: PKCS12
 
 spring:
   jackson:

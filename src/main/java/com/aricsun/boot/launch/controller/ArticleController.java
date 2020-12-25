@@ -4,6 +4,7 @@ import com.aricsun.boot.launch.AjaxResponse;
 import com.aricsun.boot.launch.model.ArticleVO;
 //import io.swagger.annotations.*;
 import com.aricsun.boot.launch.service.ArticleService;
+import com.aricsun.boot.launch.service.ExceptionService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -24,11 +25,20 @@ public class ArticleController {
 
     @Resource
     ArticleService articleService;
+    @Resource
+    ExceptionService exceptionService;
 
     //查询一篇文章，根据id
 //    @RequestMapping(value = "/articles/{id}", method = RequestMethod.GET)
     @GetMapping("/articles/{id}")
     public AjaxResponse getArticle(@PathVariable("id") Long id){  // PathVariable表示传递的是路径上的变量
+
+        // 测试模拟异常(P65)
+        if (id == 1){
+            exceptionService.systemBizError();
+        } else {
+            exceptionService.userBizError(-1);
+        }
 
         ArticleVO article = articleService.getArticle(id);
 

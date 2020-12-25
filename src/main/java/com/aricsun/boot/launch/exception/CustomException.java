@@ -11,13 +11,23 @@ public class CustomException extends RuntimeException{
     // 私有的无参构造函数，不能让程序员随便生成
     private CustomException(){}
 
+    /*
+     * function: 使用默认的异常消息 
+     * @Param [exceptionTypeEnum]
+     * @Return 
+     */
     public CustomException(CustomExceptionType exceptionTypeEnum) {
         code = exceptionTypeEnum.getCode();
         message = exceptionTypeEnum.getDesc();
     }
 
+    /*
+     * function: 使用自定义的异常消息
+     * @Param [exceptionTypeEnum, message]
+     * @Return
+     */
     public CustomException(CustomExceptionType exceptionTypeEnum,
-                           String message) {
+                            String message) {
         this.code = exceptionTypeEnum.getCode();
         this.message = message;
     }

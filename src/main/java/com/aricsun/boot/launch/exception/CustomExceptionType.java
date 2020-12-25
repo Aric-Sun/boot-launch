@@ -14,6 +14,7 @@ public enum CustomExceptionType {
     private String desc; // description  异常类型中文描述
     private int code;
 
+    // 这个构造函数其实是给上面的枚举值用的，不是给其他调用的，只能是private
     CustomExceptionType(int code, String desc) {
         this.desc = desc;
         this.code = code;
