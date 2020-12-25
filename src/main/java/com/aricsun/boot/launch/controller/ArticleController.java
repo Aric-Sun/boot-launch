@@ -10,6 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.util.Date;
 import java.util.List;
 
@@ -61,7 +62,7 @@ public class ArticleController {
     //新增一篇文章
 //    @RequestMapping(value = "/articles", method = RequestMethod.POST)
     @PostMapping("/articles")
-    public AjaxResponse saveArticle(@RequestBody ArticleVO article/*,  // RequestBody接收来自http的一个对象，可嵌套（json）
+    public AjaxResponse saveArticle(@Valid @RequestBody ArticleVO article/*,  // RequestBody接收来自http的一个对象，可嵌套（json）
                                     @RequestHeader String aaa*/){  // RequestHeader接收请求头参数
 
         articleService.saveArticle(article);

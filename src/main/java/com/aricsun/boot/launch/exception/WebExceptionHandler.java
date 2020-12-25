@@ -1,6 +1,9 @@
 package com.aricsun.boot.launch.exception;
 
 import com.aricsun.boot.launch.AjaxResponse;
+import org.springframework.validation.BindException;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -20,6 +23,47 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  */
 public class WebExceptionHandler {
 
+    /*
+     * function: 专门针对数据校验的异常。校验设置在VO的参数前注解和函数的参数定义时的@Valid注解
+     * @Param [MethodArgumentNotValidException]
+     * @Return com.aricsun.boot.launch.AjaxResponse
+     */
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public AjaxResponse handleBindException(MethodArgumentNotValidException e){
+        FieldError fieldError = e.getBindingResult().getFieldError();
+        return AjaxResponse.error(new CustomException(CustomExceptionType.USER_INPUT_ERROR,
+                fieldError.getDefaultMessage())); // 这个defaultMessage就是@NotEmpty的message信息
+    }
+
+    /*
+     * function: 和上面的方法一模一样，因为参数校验可能抛出这两个异常，所以都要捕获到
+     * @Param [BindException]
+     * @Return com.aricsun.boot.launch.AjaxResponse
+     */
+    @ExceptionHandler(BindException.class)
+    public AjaxResponse handleBindException(BindException e){
+        FieldError fieldError = e.getBindingResult().getFieldError();
+        return AjaxResponse.error(new CustomException(CustomExceptionType.USER_INPUT_ERROR,
+                fieldError.getDefaultMessage())); // 这个defaultMessage就是@NotEmpty的message信息
+    }
+
+    /*
+     * function: 针对org.springframework.util.Assert抛出的异常进行捕获
+     * @Param [IllegalArgumentException]
+     * @Return com.aricsun.boot.launch.AjaxResponse
+     */
+    @ExceptionHandler(IllegalArgumentException.class)
+    public AjaxResponse handleIllegalArgumentException(IllegalArgumentException e){
+        return AjaxResponse.error(
+                new CustomException(CustomExceptionType.USER_INPUT_ERROR,
+                        e.getMessage()));
+    }
+
+    /*
+     * function: 针对自定义异常的捕获
+     * @Param [CustomException]
+     * @Return com.aricsun.boot.launch.AjaxResponse
+     */
     @ExceptionHandler(CustomException.class)
     public AjaxResponse customException(CustomException e){
         if (e.getCode() == CustomExceptionType.SYSTEM_ERROR.getCode()){

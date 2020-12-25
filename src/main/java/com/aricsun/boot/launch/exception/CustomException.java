@@ -1,6 +1,7 @@
 package com.aricsun.boot.launch.exception;
 
 /**
+ * 自定义异常
  * @author AricSun
  * @date 2020.12.25 22:31
  */
