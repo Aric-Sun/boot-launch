@@ -31,7 +31,7 @@ public class ArticleController {
     //查询一篇文章，根据id
 //    @RequestMapping(value = "/articles/{id}", method = RequestMethod.GET)
     @GetMapping("/articles/{id}")
-    public AjaxResponse getArticle(@PathVariable("id") Long id){  // PathVariable表示传递的是路径上的变量
+    public ArticleVO getArticle(@PathVariable("id") Long id){  // PathVariable表示传递的是路径上的变量
 
         // 测试模拟异常(P65)
         if (id == 1){
@@ -44,18 +44,18 @@ public class ArticleController {
 
         log.info("article: "+ article);
 
-        return AjaxResponse.success(article);
+        return article;
     }
 
     //查询所有文章
     @GetMapping("/articles")
-    public AjaxResponse getArticle(){  // PathVariable表示传递的是路径上的变量
+    public List<ArticleVO> getArticle(){  // PathVariable表示传递的是路径上的变量
 
         List<ArticleVO> articles = articleService.getAll();
 
         log.info("articles: "+ articles);
 
-        return AjaxResponse.success(articles);
+        return articles;
     }
 
     //新增一篇文章
