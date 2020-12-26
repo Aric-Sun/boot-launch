@@ -22,6 +22,7 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+    # jsp
   mvc:
     view:
       prefix: /WEB-INF/jsp/
